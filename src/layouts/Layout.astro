@@ -1,21 +1,188 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
+
 interface Props {
-	title: string;
+  title: string;
 }
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Nova Consulting" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex items-center justify-center font-sans">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    </head>
+  <body
+    class="bg-[#00236a] text-white font-sans antialiased overflow-x-hidden"
+  >
+    <nav class="fixed top-4 inset-x-0 z-100 flex justify-center px-4">
+      <div
+        class="w-full max-w-6xl bg-blue-900/20 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-full px-6 py-3 flex items-center justify-between shadow-2xl relative z-20"
+      >
+        <div class="flex items-center">
+          <a href="#nova"> <img
+              src="/nova-logo.avif"
+              alt="Nova Consulting Logo"
+              class="h-9 md:h-10 w-auto object-contain"
+              loading="eager"
+            />
+          </a>
+        </div>
+
+        <div
+          class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-blue-100"
+        >
+          <a href="#servicios" class="hover:text-white transition">Servicios</a>
+          <a href="#nosotros" class="hover:text-white transition">Nosotros</a>
+          <a href="#sectores" class="hover:text-white transition">Sectores</a>
+          <a href="#equipo" class="hover:text-white transition">Equipo</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="#contacto"
+            class="hidden md:block bg-white text-[#00236a] px-5 py-2 rounded-full text-xs font-black uppercase hover:scale-105 transition shadow-lg"
+          >
+            Contacto
+          </a>
+          <button
+            id="menu-toggle"
+            class="md:hidden text-white p-1 outline-none"
+          >
+            <svg
+              id="menu-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 transition-transform duration-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="absolute top-full left-4 right-4 mt-2 bg-[#001a4d]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 flex flex-col gap-5 text-sm font-bold uppercase tracking-widest shadow-2xl origin-top transition-all duration-300 scale-y-0 opacity-0 pointer-events-none md:hidden z-10"
+      >
+        <a href="#servicios" class="mobile-link hover:text-blue-400 border-b border-white/5 pb-3">Servicios</a>
+        <a href="#nosotros" class="mobile-link hover:text-blue-400 border-b border-white/5 pb-3">Nosotros</a>
+        <a href="#sectores" class="mobile-link hover:text-blue-400 border-b border-white/5 pb-3">Sectores</a>
+        <a href="#equipo" class="mobile-link hover:text-blue-400 border-b border-white/5 pb-3">Equipo</a>
+        <a href="#contacto" class="mobile-link text-center bg-blue-400 text-[#00236a] rounded-xl py-4 font-black">Contacto</a>
+      </div>
+    </nav>
+
+    <main class="pt-24 md:pt-32">
+      <slot />
+    </main>
+
+    <footer class="bg-[#001a4d] pt-20 pb-10 px-6 border-t border-white/5 mt-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div class="col-span-1 md:col-span-1 space-y-6 text-center md:text-left">
+            <img
+              src="/nova-logo.avif"
+              alt="Nova Logo"
+              class="h-10 w-auto mx-auto md:mx-0 opacity-80"
+            />
+            <p class="text-blue-100/50 text-sm italic leading-relaxed">
+              Soluciones estratégicas en Canarias.
+            </p>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h4 class="text-white font-black uppercase text-xs tracking-widest mb-6">Navegación</h4>
+            <ul class="space-y-4 text-sm font-medium text-blue-100/60">
+              <li><a href="#servicios" class="hover:text-blue-400 transition">Servicios</a></li>
+              <li><a href="#nosotros" class="hover:text-blue-400 transition">Sobre Nosotros</a></li>
+              <li><a href="#sectores" class="hover:text-blue-400 transition">Sectores</a></li>
+              <li><a href="#equipo" class="hover:text-blue-400 transition">Nuestro Equipo</a></li>
+            </ul>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h4 class="text-white font-black uppercase text-xs tracking-widest mb-6">Legal</h4>
+            <ul class="space-y-4 text-sm font-medium text-blue-100/60">
+              <li><a href="/privacidad" class="hover:text-blue-400 transition">Privacidad</a></li>
+              <li><a href="/cookies" class="hover:text-blue-400 transition">Cookies</a></li>
+            </ul>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h4 class="text-white font-black uppercase text-xs tracking-widest mb-6">Contacto</h4>
+            <p class="text-sm text-blue-100/60 font-medium mb-4">La Laguna, Tenerife, España</p>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/5 text-center">
+          <p class="text-blue-300/30 text-[10px] font-bold uppercase tracking-[0.3em]">
+            © 2026 Canarias Nova Consulting.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Lógica Menú Móvil
+      const btn = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      function toggleMenu() {
+        if (!menu || !icon) return;
+        const isExpanded = menu.classList.contains("scale-y-100");
+        if (isExpanded) {
+          menu.classList.remove("scale-y-100", "opacity-100", "pointer-events-auto");
+          menu.classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+          icon.style.transform = "rotate(0deg)";
+        } else {
+          menu.classList.remove("scale-y-0", "opacity-0", "pointer-events-none");
+          menu.classList.add("scale-y-100", "opacity-100", "pointer-events-auto");
+          icon.style.transform = "rotate(90deg)";
+        }
+      }
+
+      btn?.addEventListener("click", toggleMenu);
+      mobileLinks.forEach((link) => link.addEventListener("click", toggleMenu));
+
+      // 2. SCROLL SUAVE UNIVERSAL Y LIMPIEZA DE URL
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        const link = target.closest("a");
+
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+
+        if (href && href.startsWith("#") && href.length > 1) {
+          const targetElement = document.querySelector(href);
+
+          if (targetElement) {
+            e.preventDefault();
+
+            const offset = 100;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+
+            window.history.pushState(null, "", window.location.pathname);
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
