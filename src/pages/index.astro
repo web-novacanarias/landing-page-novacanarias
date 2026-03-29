@@ -6,14 +6,17 @@ import Layout from "../layouts/Layout.astro";
   <!-- HERO -->
   <section
     id="nova"
-    class="relative px-6 pt-4 md:pt-1 overflow-hidden min-h-[85vh] flex items-center"
+    class="relative px-6 pt-10 pb-12 md:pt-16 lg:pt-5 overflow-hidden flex items-start bg-[#00236A]"
   >
     <div
-      class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-center"
+      class="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-600/5 blur-[120px] -z-10"
     >
-      <div
-        class="order-2 lg:order-1 text-center lg:text-left space-y-8 lg:col-span-1"
-      >
+    </div>
+
+    <div
+      class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 lg:items-center w-full"
+    >
+      <div class="order-2 lg:order-1 text-center lg:text-left space-y-8">
         <div class="space-y-4">
           <p
             class="text-slate-300 font-black text-xs md:text-sm uppercase tracking-[0.3em]"
@@ -23,11 +26,10 @@ import Layout from "../layouts/Layout.astro";
           <h1
             class="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.1] tracking-tighter text-[#F7F6F6]"
           >
-            Soluciones <br class="hidden lg:block" />
-            <span class="text-blue-500">definitivas</span><br
+            Soluciones<span class="text-blue-500"> definitivas</span><br
               class="hidden lg:block"
             />
-            para empresas.
+            para empresas <span class="text-blue-500">exigentes</span>.
           </h1>
           <p
             class="text-lg text-blue-100/70 max-w-sm mx-auto lg:mx-0 font-normal leading-relaxed"
@@ -38,12 +40,12 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <div
-          class="flex flex-row flex-nowrap justify-between lg:justify-start gap-x-6 md:gap-x-12 py-8 border-y border-[#F7F6F6]/10 overflow-x-auto no-scrollbar"
+          class="flex flex-row flex-nowrap justify-center lg:justify-start lg:pl-24 gap-x-10 md:gap-x-14 py-8 border-y border-[#F7F6F6]/10 overflow-x-auto no-scrollbar relative z-10"
         >
-          <div class="flex flex-col items-center gap-2.5 group min-w-[70px]">
+          <div class="flex flex-col items-center gap-3 group min-w-22.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-9 h-9 text-blue-500 transition-transform group-hover:scale-110"
+              class="w-12 h-12 text-blue-500 transition-transform group-hover:scale-110"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -61,10 +63,10 @@ import Layout from "../layouts/Layout.astro";
             >
           </div>
 
-          <div class="flex flex-col items-center gap-2.5 group min-w-[70px]">
+          <div class="flex flex-col items-center gap-3 group min-w-22.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-9 h-9 text-blue-500 transition-transform group-hover:scale-110"
+              class="w-12 h-12 text-blue-500 transition-transform group-hover:scale-110"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -82,10 +84,10 @@ import Layout from "../layouts/Layout.astro";
             >
           </div>
 
-          <div class="flex flex-col items-center gap-2.5 group min-w-[70px]">
+          <div class="flex flex-col items-center gap-3 group min-w-22.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-9 h-9 text-blue-500 transition-transform group-hover:scale-110"
+              class="w-12 h-12 text-blue-500 transition-transform group-hover:scale-110"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -105,10 +107,12 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 pt-4 lg:hidden">
+        <div
+          class="flex flex-col sm:flex-row gap-4 pt-4 lg:hidden relative z-10"
+        >
           <a
             href="#contacto"
-            class="bg-[#F7F6F6] text-[#00236a] px-10 py-4.5 rounded-2xl font-black text-center uppercase tracking-tighter shadow-xl text-sm"
+            class="bg-[#F7F6F6] text-[#00236a] px-10 py-4.5 rounded-2xl font-black text-center uppercase tracking-tighter shadow-xl text-sm active:scale-95 transition-transform"
           >
             Quiero contactar
           </a>
@@ -122,19 +126,21 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div
-        class="order-1 lg:order-2 lg:col-span-2 flex flex-col items-center justify-center gap-8"
+        class="order-1 lg:order-2 flex flex-col items-center justify-center gap-10 w-full relative"
       >
-        <div class="relative w-full max-w-3xl group">
-          <div class="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl">
+        <div class="relative w-full max-w-4xl group">
+          <div
+            class="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-3xl opacity-60 group-hover:opacity-100 transition duration-1000"
+          >
           </div>
 
           <div
             class="relative w-full aspect-video overflow-hidden rounded-4xl lg:rounded-[3.5rem] border border-[#F7F6F6]/10 shadow-2xl transition-all duration-500"
           >
             <img
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1170&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
               alt="Oficinas Nova Consulting"
-              class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+              class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-[#00236a]/40 via-transparent to-transparent"
@@ -144,17 +150,17 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <div
-          class="hidden lg:flex flex-row gap-4 w-full max-w-3xl justify-center"
+          class="hidden lg:flex flex-row gap-5 w-full justify-center relative z-10"
         >
           <a
             href="#contacto"
-            class="flex-1 bg-[#F7F6F6] text-[#00236a] px-8 py-4.5 rounded-2xl font-black text-center uppercase tracking-tighter hover:bg-blue-50 transition shadow-xl text-sm"
+            class="flex-1 max-w-xs bg-[#F7F6F6] text-[#00236a] px-8 py-4.5 rounded-2xl font-black text-center uppercase tracking-tighter hover:bg-blue-50 transition shadow-xl text-sm active:scale-95"
           >
             Quiero contactar
           </a>
           <a
             href="#servicios"
-            class="flex-1 bg-blue-900/30 text-[#F7F6F6] border border-[#F7F6F6]/10 px-8 py-4.5 rounded-2xl font-black text-center uppercase tracking-tighter hover:bg-blue-900 transition text-sm"
+            class="flex-1 max-w-xs bg-blue-900/30 text-[#F7F6F6] border border-[#F7F6F6]/10 px-8 py-4.5 rounded-2xl font-black text-center uppercase tracking-tighter hover:bg-blue-900 transition text-sm active:scale-95"
           >
             Saber más
           </a>
@@ -166,7 +172,7 @@ import Layout from "../layouts/Layout.astro";
   <!-- DESTACABLE -->
   <section
     id="destacable"
-    class="py-25 mt-5 bg-[#001a4d] border-y border-[#F7F6F6]/5"
+    class="py-20 mt-5 bg-[#001a4d] border-y border-[#F7F6F6]/5"
   >
     <div
       class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-16 md:gap-32 text-center"
@@ -267,4 +273,1007 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-24 bg-[#F7F6F6] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div>
+          <h2
+            class="text-5xl md:text-6xl font-black text-[#00236a] underline decoration-blue-500/30 tracking-tighter"
+          >
+            ¿Qué servicios <br /> ofrecemos?
+          </h2>
+        </div>
+        <div class="border-l-2 border-blue-500/30 pl-8">
+          <p
+            class="text-lg md:text-xl text-[#00236a]/80 font-medium leading-relaxed max-w-2xl"
+          >
+            En nuestra asesoría ayudamos a <span
+              class="underline text-[#00236a]">autónomos y empresas</span
+            > a centrarse en lo que realmente importa: <span
+              class="text-[#00236a] font-bold">hacer crecer su negocio</span
+            >.<br />
+            Nos encargamos de todo lo demás: fiscalidad, contabilidad, laboral, subvenciones
+            y constitución de sociedades. Con un enfoque <span
+              class="text-[#00236a] font-bold">claro, cercano y adaptado</span
+            >
+            a la realidad de todos. Trabajamos contigo para que tomes decisiones con
+            <span class="text-[#00236a]">tranquilidad y respaldo</span> profesional.
+            Olvídate del papeleo,
+            <span class="underline text-[#00236a]">nosotros nos ocupamos</span>.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 perspective-[1000px]">
+        {
+          [
+            {
+              title: "Fiscalidad",
+              icon: `<rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path>`,
+              frontText:
+                "Presentamos tus impuestos a tiempo, sin errores. Optimizamos tu carga fiscal desde el día uno. Cumples con Hacienda sin complicarte la vida.",
+              features: [
+                "Declaraciones trimestrales y anuales.",
+                "Revisión de tus impuestos.",
+                "Asesor fiscal asignado para consultas.",
+                "Gestión de notificaciones de Hacienda.",
+                "Optimizamos para que pagues menos.",
+              ],
+            },
+            {
+              title: "Laboral",
+              icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>`,
+              frontText:
+                "Altas, bajas y contratos sin dolores de cabeza. Nóminas claras, bien hechas y a tiempo. Cumplimiento total con la normativa vigente.",
+              features: [
+                "Gestión de nóminas y seguros sociales.",
+                "Contratos adaptados a convenios vigentes.",
+                "Alta/baja en Seguridad Social en 24h.",
+                "Consultoría laboral para evitar sanciones.",
+                "Defensa ante inspecciones laborales.",
+              ],
+            },
+            {
+              title: "Contabilidad",
+              icon: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>`,
+              frontText:
+                "Llevamos tus libros contables al día, sin líos. Informes claros para que sepas cómo va tu negocio. Olvídate del Excel.",
+              features: [
+                "Informes mensuales claros y visuales.",
+                "Cuadro de mando financiero actualizado.",
+                "Herramienta para escaneo automático de facturas.",
+                "Control de gastos y previsión de tesoreria.",
+                "Cero Excel: todo automatizado.",
+              ],
+            },
+          ].map((s) => (
+            <div class="service-card-container h-110 w-full cursor-pointer group">
+              <div class="service-card-inner relative w-full h-full transition-transform duration-700 transform-3d">
+                <div class="absolute inset-0 backface-hidden bg-white group-hover:bg-[#00236a] p-10 rounded-[3rem] border border-[#00236a]/5 flex flex-col justify-between shadow-xl transition-all duration-500">
+                  <div>
+                    <div class="mb-8 flex items-center justify-start transition-transform group-hover:scale-110">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-14 h-14 text-[#00236a] group-hover:text-white transition-colors"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        set:html={s.icon}
+                      />
+                    </div>
+                    <h3 class="text-4xl font-black text-[#00236a] group-hover:text-white leading-tight mb-4 transition-colors tracking-tighter">
+                      {s.title}
+                    </h3>
+                    <p class="text-slate-600 group-hover:text-blue-100/70 font-medium leading-relaxed transition-colors">
+                      {s.frontText}
+                    </p>
+                  </div>
+                  <span class="text-blue-500 group-hover:text-white font-bold tracking-widest uppercase text-[10px] flex items-center gap-2 transition-colors">
+                    Detalles+
+                  </span>
+                </div>
+
+                <div class="absolute inset-0 backface-hidden transform-[rotateY(180deg)] bg-white group-hover:bg-[#00236a] p-10 rounded-[3rem] flex flex-col border-4 border-[#00236a]/5 shadow-2xl transition-all duration-500">
+                  <h3 class="text-2xl font-black mb-2 text-[#00236a] group-hover:text-white transition-colors">
+                    {s.title}
+                  </h3>
+                  <div class="h-1 w-10 bg-blue-500 mb-6" />
+                  <ul class="space-y-4 grow">
+                    {s.features.map((feature) => (
+                      <li class="flex items-start gap-4 text-slate-700 group-hover:text-white/90 font-semibold italic text-sm leading-snug transition-colors">
+                        <span class="text-blue-500 group-hover:text-blue-300 mt-0.5 transition-colors shrink-0">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-6 h-6"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <p class="mt-6 text-[#00236a]/30 group-hover:text-white/20 font-black uppercase text-[9px] tracking-[0.2em] transition-colors text-center">
+                    Nova Consulting Tenerife
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .flipped {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <script>
+    function initServiceCards() {
+      const containers = document.querySelectorAll(".service-card-container");
+      containers.forEach((container) => {
+        container.addEventListener("click", () => {
+          const inner = container.querySelector(".service-card-inner");
+          if (inner) inner.classList.toggle("flipped");
+        });
+      });
+    }
+    initServiceCards();
+    document.addEventListener("astro:after-swap", initServiceCards);
+  </script>
+
+  <!-- NOSOTROS -->
+  <section
+    id="nosotros"
+    class="relative bg-[#00236a] font-sans overflow-hidden"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div
+        class="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full"
+      >
+      </div>
+      <div
+        class="absolute bottom-[20%] -left-[10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full"
+      >
+      </div>
+    </div>
+
+    <div class="max-w-400 mx-auto px-6 lg:px-20 pt-16 lg:pt-32">
+      <div class="flex flex-col lg:flex-row gap-0 lg:gap-24">
+        <div
+          class="w-full lg:w-5/12 lg:sticky lg:top-20 lg:h-fit flex flex-col justify-center pb-2 lg:pb-32"
+        >
+          <span
+            class="inline-block w-fit px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase text-blue-400 bg-blue-500/10 rounded-full border border-blue-400/20"
+          >
+            Experiencia Nova
+          </span>
+
+          <h2
+            class="text-4xl md:text-6xl font-black text-white tracking-tighter leading-[0.95] mb-8"
+          >
+            Soluciones <span class="italic text-blue-500">progresivas</span>
+            <br />
+            para negocios <span class="italic text-blue-500">progresivos</span>
+            <br />
+          </h2>
+
+          <p
+            class="text-blue-100/70 text-lg md:text-xl leading-relaxed mb-0 lg:mb-10 max-w-md"
+          >
+            Acompañamos a negocios que apuestan por el crecimiento<span
+              class="font-bold"
+            >
+              sostenible</span
+            >, la transformación <span class="font-bold"> digital</span> y la toma
+            de decisiones con <span class="font-bold"> impacto real</span>.
+            Nuestro equipo combina <span class="underline"> experiencia</span>, <span
+              class="underline">análisis</span
+            > y visión de <span class="underline">futuro</span> para ayudarte a avanzar
+            con <span class="font-bold">confianza</span>.
+          </p>
+        </div>
+
+        <div
+          class="w-full lg:w-7/12 mt-6 lg:mt-0 pt-0 pb-20 lg:pb-32 space-y-12 lg:space-y-24"
+        >
+          <div class="space-y-6">
+            <div class="grid grid-cols-1 gap-5">
+              <div
+                class="group bg-white/10 backdrop-blur-xl border border-white/10 p-8 rounded-4xl hover:bg-white/20 transition-all duration-500"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <span
+                    class="text-blue-500 font-black text-5xl opacity-40 group-hover:opacity-100 transition-opacity"
+                    >01</span
+                  >
+                  <div class="p-2 bg-[#F7F6F6]/10 rounded-lg text-[#F7F6F6]">
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg
+                    >
+                  </div>
+                </div>
+                <h4 class="text-2xl font-bold text-white mb-3">
+                  Reducción de carga fiscal
+                </h4>
+                <p class="text-blue-50/70 leading-relaxed">
+                  Optimizamos estructuras legales logrando reducir hasta un <span
+                    class="text-blue-500 font-bold italic"
+                    >35% en impuestos</span
+                  > a nuestros clientes, sin cruzar una sola línea roja. Todo auditado.
+                </p>
+              </div>
+
+              <div
+                class="group bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-4xl hover:bg-white/10 transition-all duration-500"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <span
+                    class="text-blue-500 font-black text-5xl opacity-40 group-hover:opacity-100 transition-opacity"
+                    >02</span
+                  >
+                  <div class="p-2 bg-[#F7F6F6]/10 rounded-lg text-[#F7F6F6]">
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      ></path></svg
+                    >
+                  </div>
+                </div>
+                <h4 class="text-2xl font-bold text-white mb-3">
+                  Planificación Fiscal personalizada
+                </h4>
+                <p class="text-blue-50/70 leading-relaxed">
+                  No usamos plantillas. <span
+                    class="text-blue-400 font-bold italic"
+                    >Analizamos tu modelo</span
+                  > de negocio y diseñamos una <span
+                    class="text-blue-400 font-bold italic"
+                    >estrategia a medida</span
+                  >, maximizando deducciones y bonificaciones según sector y
+                  ubicación.
+                </p>
+              </div>
+
+              <div
+                class="group bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-4xl hover:bg-white/10 transition-all duration-500"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <span
+                    class="text-blue-500 font-black text-5xl opacity-40 group-hover:opacity-100 transition-opacity"
+                    >03</span
+                  >
+                  <div class="p-2 bg-[#F7F6F6]/10 rounded-lg text-[#F7F6F6]">
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      ></path></svg
+                    >
+                  </div>
+                </div>
+                <h4 class="text-2xl font-bold text-white mb-3">
+                  Blindaje ante inspecciones
+                </h4>
+                <p class="text-blue-50/70 leading-relaxed">
+                  <span class="text-blue-500 font-bold italic"
+                    >Nos anticipamos</span
+                  > al criterio de Hacienda. Preparamos tu documentación y operativa
+                  para que, ante una inspección, tengas <span
+                    class="text-blue-500 font-bold italic"
+                    >respaldo de informes</span
+                  > técnicos, legales y contables de primer nivel.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORES -->
+  <section
+    id="sectores"
+    class="py-20 md:py-22 bg-[#F7F6F6] font-sans overflow-hidden"
+  >
+    <div class="max-w-7xl mx-auto px-6">
+      <h2
+        class="text-4xl md:text-5xl font-black mb-12 md:mb-20 text-center text-[#00236a] tracking-tighter"
+      >
+        Sectores Especializados
+      </h2>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[220px] sm:auto-rows-[180px] md:auto-rows-[200px]"
+      >
+        <div
+          class="sm:col-span-1 sm:row-span-2 rounded-[2.5rem] overflow-hidden group relative shadow-2xl"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+            alt="Turismo"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-t from-[#001a4d] via-[#001a4d]/20 p-8 md:p-10 flex flex-col justify-end"
+          >
+            <p
+              class="text-white font-bold text-3xl md:text-4xl tracking-tighter uppercase italic transform group-hover:-translate-y-2 transition-transform duration-500"
+            >
+              Restauración
+            </p>
+            <div
+              class="h-1 w-0 bg-blue-400 group-hover:w-20 transition-all duration-500 delay-100"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-4xl overflow-hidden relative group shadow-lg">
+          <img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400"
+            alt="Real Estate"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-[#00236a]/60 backdrop-blur-[2px] group-hover:backdrop-blur-0 group-hover:bg-transparent transition-all duration-500 flex flex-col items-center justify-center"
+          >
+            <span
+              class="font-bold text-white italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              >Salud e Imagen</span
+            >
+            <div
+              class="h-1 w-0 bg-blue-400 group-hover:w-12 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-4xl overflow-hidden relative group shadow-lg">
+          <img
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400"
+            alt="Retail"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-[#00236a]/60 backdrop-blur-[2px] group-hover:backdrop-blur-0 group-hover:bg-transparent transition-all duration-500 flex flex-col items-center justify-center"
+          >
+            <span
+              class="font-bold text-white italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              >Hostelería</span
+            >
+            <div
+              class="h-1 w-0 bg-blue-400 group-hover:w-12 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="sm:row-span-2 rounded-4xl overflow-hidden relative group shadow-md"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400"
+            alt="Logística"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-white/80 group-hover:bg-white/40 transition-all duration-500 flex flex-col items-center justify-center"
+          >
+            <span
+              class="font-bold text-[#00236a] italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              >Construcción</span
+            >
+            <div
+              class="h-1 w-0 bg-[#00236a] group-hover:w-12 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="sm:col-span-2 rounded-4xl overflow-hidden relative group shadow-xl"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
+            alt="Tech"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-r from-[#00236a] to-transparent p-10 flex flex-col justify-center items-start transition-all duration-500 group-hover:pl-14"
+          >
+            <p
+              class="font-bold text-white italic tracking-tighter text-2xl uppercase transform group-hover:-translate-y-1 transition-transform"
+            >
+              Inmobiliaria
+            </p>
+            <div
+              class="h-1 w-0 bg-blue-400 group-hover:w-24 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-4xl overflow-hidden relative group shadow-md">
+          <img
+            src="https://images.unsplash.com/photo-1466611653911-95282ee36567?auto=format&fit=crop&q=80&w=400"
+            alt="Energía"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-white/80 group-hover:bg-white/40 transition-all duration-500 flex flex-col items-center justify-center"
+          >
+            <span
+              class="font-bold text-[#00236a] italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              >Profesionales</span
+            >
+            <div
+              class="h-1 w-0 bg-[#00236a] group-hover:w-12 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-4xl overflow-hidden relative group shadow-xl">
+          <img
+            src="https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&q=80&w=400"
+            alt="Naval"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-[#00236a]/80 flex flex-col items-center justify-center group-hover:bg-[#00236a]/40 transition-all duration-500"
+          >
+            <span
+              class="font-bold text-blue-200 italic tracking-tighter text-xl uppercase group-hover:text-white transform group-hover:-translate-y-1 transition-all"
+              >Deportes y Cuidados</span
+            >
+            <div
+              class="h-1 w-0 bg-blue-400 group-hover:w-12 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="sm:col-span-2 rounded-4xl overflow-hidden relative group shadow-lg"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800"
+            alt="Ecommerce"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+          />
+          <div
+            class="absolute inset-0 bg-[#F7F6F6]/90 group-hover:bg-[#F7F6F6]/70 transition-all duration-500 flex flex-col justify-center items-start px-10"
+          >
+            <span
+              class="font-bold text-[#00236a] italic tracking-tighter text-2xl uppercase transform group-hover:-translate-y-1 transition-transform"
+            >
+              Ocio y Disfrute
+            </span>
+            <div
+              class="h-1 w-0 bg-[#00236a] group-hover:w-24 transition-all duration-500"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section
+    id="equipo"
+    class="py-10 md:py-15 bg-white overflow-hidden font-sans"
+  >
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+        <div class="w-full lg:w-5/12 lg:sticky lg:top-10 z-20">
+          <span
+            class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase text-blue-600 bg-blue-50 rounded-full border border-blue-100"
+          >
+            Profesionales
+          </span>
+
+          <h2
+            class="text-3xl md:text-5xl font-black text-[#00236a] italic tracking-tighter leading-none mb-6 text-pretty"
+          >
+            Equipo Nova <br />
+            <span
+              class="text-blue-500 font-medium text-xl md:text-2xl not-italic tracking-normal"
+            >
+              Sinergia y Experiencia
+            </span>
+          </h2>
+
+          <p class="text-slate-600 text-lg leading-relaxed mb-8 inline-block">
+            Un equipo <span class="underline italic">multidisciplinar</span> comprometido
+            con el <span class="font-bold">crecimiento</span> sostenible y la <span
+              class="font-bold">seguridad</span
+            > jurídica de tu negocio en las islas.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-10">
+            <div
+              class="flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div class="bg-blue-600 p-3 rounded-xl text-white shrink-0">
+                <svg
+                  class="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <span
+                class="text-[11px] md:text-xs font-black uppercase tracking-wider text-[#00236a]"
+                >Dirección</span
+              >
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div class="bg-blue-500 p-3 rounded-xl text-white shrink-0">
+                <svg
+                  class="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                  ></path>
+                </svg>
+              </div>
+              <span
+                class="text-[11px] md:text-xs font-black uppercase tracking-wider text-[#00236a]"
+                >Estrategia</span
+              >
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div class="bg-blue-400 p-3 rounded-xl text-white shrink-0">
+                <svg
+                  class="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <span
+                class="text-[11px] md:text-xs font-black uppercase tracking-wider text-[#00236a]"
+                >Fiscalidad</span
+              >
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div class="bg-blue-300 p-3 rounded-xl text-white shrink-0">
+                <svg
+                  class="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <span
+                class="text-[11px] md:text-xs font-black uppercase tracking-wider text-[#00236a]"
+                >Sostenibilidad</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-full lg:w-7/12 flex flex-col items-center justify-center min-h-120 md:min-h-150 relative"
+        >
+          <div
+            id="stack"
+            class="relative w-full max-w-75 md:max-w-95 aspect-4/5 cursor-pointer"
+          >
+            <div
+              class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
+                class="w-full h-full object-cover pointer-events-none"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-[#00236a]/90 via-transparent to-transparent opacity-90"
+              >
+              </div>
+              <div class="absolute bottom-6 left-6">
+                <p class="text-white font-black italic text-xl">
+                  Nombre Apellido
+                </p>
+                <p
+                  class="text-blue-300 text-xs font-bold uppercase tracking-widest"
+                >
+                  Socio Director
+                </p>
+              </div>
+            </div>
+            <div
+              class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                class="w-full h-full object-cover pointer-events-none"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-[#00236a]/90 via-transparent to-transparent opacity-90"
+              >
+              </div>
+              <div class="absolute bottom-6 left-6">
+                <p class="text-white font-black italic text-xl">
+                  Nombre Apellido
+                </p>
+                <p
+                  class="text-blue-300 text-xs font-bold uppercase tracking-widest"
+                >
+                  Estrategia Digital
+                </p>
+              </div>
+            </div>
+            <div
+              class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
+                class="w-full h-full object-cover pointer-events-none"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-[#00236a]/90 via-transparent to-transparent opacity-90"
+              >
+              </div>
+              <div class="absolute bottom-6 left-6">
+                <p class="text-white font-black italic text-xl">
+                  Nombre Apellido
+                </p>
+                <p
+                  class="text-blue-300 text-xs font-bold uppercase tracking-widest"
+                >
+                  Análisis Fiscal
+                </p>
+              </div>
+            </div>
+            <div
+              class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
+                class="w-full h-full object-cover pointer-events-none"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-[#00236a]/90 via-transparent to-transparent opacity-90"
+              >
+              </div>
+              <div class="absolute bottom-6 left-6">
+                <p class="text-white font-black italic text-xl">
+                  Nombre Apellido
+                </p>
+                <p
+                  class="text-blue-300 text-xs font-bold uppercase tracking-widest"
+                >
+                  Sostenibilidad
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-8 flex items-center gap-2 text-slate-400 animate-pulse"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+              ></path>
+            </svg>
+            <span class="text-[10px] font-bold uppercase tracking-widest"
+              >Toca para descubrir al equipo</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .card-at-back {
+      transform: scale(0.88) translateY(20px) rotate(-2deg);
+      z-index: 0;
+      opacity: 0.4;
+      filter: blur(1px);
+    }
+    .card-mid-2 {
+      transform: scale(0.92) translateY(12px) rotate(1.5deg);
+      z-index: 10;
+      opacity: 0.7;
+    }
+    .card-mid-1 {
+      transform: scale(0.96) translateY(6px) rotate(-1deg);
+      z-index: 20;
+      opacity: 0.9;
+    }
+    .card-front {
+      transform: scale(1) translateY(0) rotate(0deg);
+      z-index: 30;
+      opacity: 1;
+    }
+    .card-exit {
+      transform: translateX(-130%) rotate(-15deg) !important;
+      opacity: 0 !important;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  </style>
+
+  <script>
+    function setupStack() {
+      const stack = document.getElementById("stack");
+      if (!stack) return;
+      let cards = Array.from(stack.querySelectorAll(".card"));
+      function updateStack() {
+        cards.forEach((card, i) => {
+          card.classList.remove(
+            "card-front",
+            "card-mid-1",
+            "card-mid-2",
+            "card-at-back",
+            "card-exit",
+          );
+          if (i === cards.length - 1) card.classList.add("card-front");
+          else if (i === cards.length - 2) card.classList.add("card-mid-1");
+          else if (i === cards.length - 3) card.classList.add("card-mid-2");
+          else card.classList.add("card-at-back");
+        });
+      }
+      stack.addEventListener("click", () => {
+        const topCard = cards[cards.length - 1];
+        if (!topCard) return;
+        topCard.classList.add("card-exit");
+        setTimeout(() => {
+          const movedCard = cards.pop();
+          if (movedCard) {
+            cards.unshift(movedCard);
+            updateStack();
+          }
+        }, 500);
+      });
+      updateStack();
+    }
+    document.addEventListener("DOMContentLoaded", setupStack);
+  </script>
+
+  <!-- NEWSLETTER -->
+  <section
+    id="newsletter"
+    class="relative py-14 bg-[#F7F6F6] mx-4 md:mx-10 rounded-[2.5rem] my-12 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,35,106,0.2)] border border-white/50"
+  >
+    <div
+      class="absolute top-0 left-1/4 w-64 h-64 bg-blue-200/30 rounded-full blur-[100px] -translate-y-1/2"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-200/20 rounded-full blur-[120px] translate-y-1/2"
+    >
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="flex justify-center mb-6">
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 text-[10px] font-bold tracking-[0.15em] uppercase text-blue-600 bg-white shadow-sm rounded-full border border-blue-100"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"
+            ></span>
+          </span>
+          Newsletter Exclusiva
+        </span>
+      </div>
+
+      <h2
+        class="text-4xl md:text-6xl font-black mb-5 text-[#00236a] tracking-tighter leading-[0.9] md:leading-[0.9]"
+      >
+        Anticípate al <span
+          class="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-blue-400"
+          >BOE</span
+        >
+      </h2>
+
+      <p
+        class="text-slate-600/80 mb-10 text-base md:text-lg font-medium max-w-xl mx-auto leading-relaxed"
+      >
+        Traducción directa de cambios legales en <br class="hidden md:block" />
+        <span
+          class="text-[#00236a] font-bold decoration-blue-400/30 underline decoration-4 underline-offset-8"
+        >
+          oportunidades fiscales
+        </span> para tu empresa.
+      </p>
+
+      <div class="max-w-2xl mx-auto relative group">
+        <div
+          class="absolute -inset-1 bg-linear-to-r from-blue-700 to-indigo-200 rounded-[2.2rem] blur opacity-0 group-hover:opacity-10 transition duration-1000"
+        >
+        </div>
+
+        <form
+          class="relative flex flex-col sm:flex-row gap-2 p-2 bg-white/60 backdrop-blur-xl rounded-3xl border border-white shadow-xl"
+        >
+          <input
+            type="email"
+            placeholder="Tu mejor email..."
+            class="flex-1 px-8 py-4 rounded-2xl bg-white/80 text-[#00236a] outline-none focus:ring-2 ring-blue-500/20 font-semibold placeholder:text-slate-400 transition-all text-sm"
+            required
+          />
+          <button
+            class="group bg-[#00236a] hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-tighter transition-all shadow-lg hover:shadow-blue-900/20 active:scale-95 text-sm flex items-center justify-center gap-2"
+          >
+            Suscribirme
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div
+        class="mt-8 flex items-center justify-center gap-6 text-[11px] text-slate-400 font-bold uppercase tracking-[0.2em]"
+      >
+        <span class="flex items-center gap-2">
+          <svg
+            class="w-4 h-4 text-green-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            ><path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path></svg
+          >
+          Solo lo esencial
+        </span>
+        <span class="opacity-30 text-[#00236a]">|</span>
+        <span class="flex items-center gap-2">
+          <svg
+            class="w-4 h-4 text-green-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            ><path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path></svg
+          >
+          Sin Spam
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-32 bg-[#00236a] text-[#F7F6F6]">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <div
+        class="aspect-square bg-[#F7F6F6]/5 border border-[#F7F6F6]/10 rounded-[3rem] overflow-hidden relative"
+      >
+        <div class="absolute inset-0 bg-blue-900/20 mix-blend-overlay"></div>
+        <div
+          class="w-full h-full bg-[#001a4d] flex items-center justify-center text-blue-300 italic"
+        >
+          Foto Contacto
+        </div>
+      </div>
+      <div>
+        <h2 class="text-5xl font-black mb-8 leading-tight">
+          ¿Hablamos?<br /><span class="text-blue-400 italic"
+            >Tu futuro empieza aquí.</span
+          >
+        </h2>
+        <form class="space-y-4">
+          <input
+            type="text"
+            placeholder="Nombre"
+            class="w-full p-5 bg-[#F7F6F6]/5 rounded-2xl border border-[#F7F6F6]/10 outline-none focus:ring-2 ring-blue-400 font-medium text-[#F7F6F6] placeholder:text-blue-200/40"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            class="w-full p-5 bg-[#F7F6F6]/5 rounded-2xl border border-[#F7F6F6]/10 outline-none focus:ring-2 ring-blue-400 font-medium text-[#F7F6F6] placeholder:text-blue-200/40"
+          />
+          <textarea
+            placeholder="Mensaje"
+            rows="4"
+            class="w-full p-5 bg-[#F7F6F6]/5 rounded-2xl border border-[#F7F6F6]/10 outline-none focus:ring-2 ring-blue-400 font-medium text-[#F7F6F6] placeholder:text-blue-200/40"
+          ></textarea>
+          <button
+            class="w-full bg-[#F7F6F6] text-[#00236a] py-5 rounded-2xl font-black text-lg shadow-2xl hover:bg-blue-50 transition"
+            >Enviar Consulta</button
+          >
+        </form>
+      </div>
+    </div>
+  </section>
 </Layout>
