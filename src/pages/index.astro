@@ -1172,18 +1172,21 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <form
+          id="newsletter-form"
           class="relative flex flex-col sm:flex-row gap-2 p-2 bg-white/60 backdrop-blur-xl rounded-3xl border border-white shadow-xl"
         >
           <input
             type="email"
+            name="email"
             placeholder="Tu mejor email..."
             class="flex-1 px-8 py-4 rounded-2xl bg-white/80 text-[#00236a] outline-none focus:ring-2 ring-blue-500/20 font-semibold placeholder:text-slate-400 transition-all text-sm"
             required
           />
           <button
-            class="group bg-[#00236a] hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-tighter transition-all shadow-lg hover:shadow-blue-900/20 active:scale-95 text-sm flex items-center justify-center gap-2"
+            type="submit"
+            class="group bg-[#00236a] hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-tighter transition-all shadow-lg hover:shadow-blue-900/20 active:scale-95 text-sm flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            Suscribirme
+            <span id="btn-text">Suscribirme</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-4 w-4 group-hover:translate-x-1 transition-transform"
@@ -1199,39 +1202,87 @@ import Layout from "../layouts/Layout.astro";
             </svg>
           </button>
         </form>
+
+        <p
+          id="form-message"
+          class="hidden mt-4 text-sm font-bold animate-fade-in transition-all"
+        >
+        </p>
       </div>
 
       <div
         class="mt-8 flex items-center justify-center gap-6 text-[11px] text-slate-400 font-bold uppercase tracking-[0.2em]"
       >
-        <span class="flex items-center gap-2">
-          <svg
-            class="w-4 h-4 text-green-500"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            ><path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"></path></svg
-          >
-          Solo lo esencial
-        </span>
+        <span class="flex items-center gap-2 italic">Solo lo esencial</span>
         <span class="opacity-30 text-[#00236a]">|</span>
-        <span class="flex items-center gap-2">
-          <svg
-            class="w-4 h-4 text-green-500"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            ><path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"></path></svg
-          >
-          Sin Spam
-        </span>
+        <span class="flex items-center gap-2 italic">Sin Spam</span>
       </div>
     </div>
   </section>
+
+  <script>
+    const form = document.querySelector("#newsletter-form") as HTMLFormElement;
+    const formMessage = document.getElementById("form-message");
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector("button");
+      const btnText = document.getElementById("btn-text");
+
+      // Estado de carga
+      if (submitBtn && btnText) {
+        submitBtn.disabled = true;
+        btnText.innerText = "Procesando...";
+      }
+
+      // Limpiar mensaje anterior
+      if (formMessage) {
+        formMessage.classList.add("hidden");
+      }
+
+      try {
+        const response = await fetch("/api/subscribe", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (formMessage) {
+          formMessage.classList.remove("hidden");
+
+          if (response.ok) {
+            formMessage.innerText = "¡Te has suscrito con éxito! Bienvenido.";
+            formMessage.className =
+              "mt-4 text-sm font-bold text-green-600 block";
+            form.reset();
+          } else {
+            formMessage.innerText =
+              "Vaya, parece que este email ya está en la lista.";
+            formMessage.className =
+              "mt-4 text-sm font-bold text-amber-600 block";
+          }
+        }
+      } catch (error) {
+        if (formMessage) {
+          formMessage.classList.remove("hidden");
+          formMessage.innerText =
+            "Error de conexión. Inténtalo de nuevo más tarde.";
+          formMessage.className = "mt-4 text-sm font-bold text-red-500 block";
+        }
+      } finally {
+        if (submitBtn && btnText) {
+          submitBtn.disabled = false;
+          btnText.innerText = "Suscribirme";
+        }
+
+        // Ocultar el mensaje automáticamente después de 5 segundos
+        setTimeout(() => {
+          if (formMessage) formMessage.classList.add("hidden");
+        }, 5000);
+      }
+    });
+  </script>
 
   <!-- CONTACTO -->
   <section id="contacto" class="py-32 bg-[#00236a] text-[#F7F6F6]">
