@@ -20,10 +20,10 @@ export const POST: APIRoute = async ({ request }) => {
     // CAMBIO A MODO PRODUCCIÓN:
     const { error } = await resend.emails.send({
       // 1. Remitente oficial (Ya verificado)
-      from: "onboarding@resend.dev",
+      from: "info@canariasnova.com",
 
       // 2. Destinatario REAL (Donde quieres recibir los mensajes)
-      to: ["web@canariasnova.com"],
+      to: ["info@canariasnova.com"],
 
       // 3. El cliente (Para que al dar a 'Responder' le escribas a él)
       replyTo: email,
