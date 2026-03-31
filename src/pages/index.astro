@@ -619,7 +619,7 @@ import Layout from "../layouts/Layout.astro";
   <!-- SECTORES -->
   <section
     id="sectores"
-    class="py-20 md:py-22 bg-[#F7F6F6] font-sans overflow-hidden"
+    class="py-20 md:py-24 bg-[#F7F6F6] font-sans overflow-hidden"
   >
     <div class="max-w-7xl mx-auto px-6">
       <h2
@@ -629,21 +629,21 @@ import Layout from "../layouts/Layout.astro";
       </h2>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[220px] sm:auto-rows-[180px] md:auto-rows-[200px]"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-fr sm:auto-rows-[200px]"
       >
         <div
-          class="sm:col-span-1 sm:row-span-2 rounded-[2.5rem] overflow-hidden group relative shadow-2xl"
+          class="sm:row-span-2 md:row-span-2 rounded-[2.5rem] overflow-hidden group relative shadow-2xl min-h-[250px] sm:min-h-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
-            alt="Turismo"
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop"
+            alt="Restauración"
             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
           />
           <div
-            class="absolute inset-0 bg-linear-to-t from-[#001a4d] via-[#001a4d]/20 p-8 md:p-10 flex flex-col justify-end"
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
           >
             <p
-              class="text-white font-bold text-3xl md:text-4xl tracking-tighter uppercase italic transform group-hover:-translate-y-2 transition-transform duration-500"
+              class="text-white font-bold text-2xl md:text-3xl tracking-tighter uppercase italic transform group-hover:-translate-y-2 transition-transform duration-500"
             >
               Restauración
             </p>
@@ -654,151 +654,131 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
 
-        <div class="rounded-4xl overflow-hidden relative group shadow-lg">
+        <div
+          class="rounded-4xl overflow-hidden relative group shadow-lg min-h-[150px] sm:min-h-0"
+        >
           <img
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400"
-            alt="Real Estate"
+            src="https://images.unsplash.com/photo-1555633514-abcee6ab92e1?q=80&w=2080&auto=format&fit=crop"
+            alt="Salud"
             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
           <div
-            class="absolute inset-0 bg-[#00236a]/60 backdrop-blur-[2px] group-hover:backdrop-blur-0 group-hover:bg-transparent transition-all duration-500 flex flex-col items-center justify-center"
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
           >
             <span
-              class="font-bold text-white italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
-              >Salud e Imagen</span
+              class="font-bold text-white italic tracking-tighter text-base md:text-lg uppercase"
+              >Salud y Bienestar</span
             >
-            <div
-              class="h-1 w-0 bg-blue-400 group-hover:w-12 transition-all duration-500"
-            >
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-4xl overflow-hidden relative group shadow-lg">
-          <img
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400"
-            alt="Retail"
-            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
-          <div
-            class="absolute inset-0 bg-[#00236a]/60 backdrop-blur-[2px] group-hover:backdrop-blur-0 group-hover:bg-transparent transition-all duration-500 flex flex-col items-center justify-center"
-          >
-            <span
-              class="font-bold text-white italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
-              >Hostelería</span
-            >
-            <div
-              class="h-1 w-0 bg-blue-400 group-hover:w-12 transition-all duration-500"
-            >
-            </div>
           </div>
         </div>
 
         <div
-          class="sm:row-span-2 rounded-4xl overflow-hidden relative group shadow-md"
+          class="rounded-4xl overflow-hidden relative group shadow-lg min-h-[150px] sm:min-h-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400"
-            alt="Logística"
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
+            alt="Construcción"
             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
           <div
-            class="absolute inset-0 bg-white/80 group-hover:bg-white/40 transition-all duration-500 flex flex-col items-center justify-center"
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
           >
             <span
-              class="font-bold text-[#00236a] italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              class="font-bold text-white italic tracking-tighter text-base md:text-lg uppercase"
               >Construcción</span
             >
-            <div
-              class="h-1 w-0 bg-[#00236a] group-hover:w-12 transition-all duration-500"
-            >
-            </div>
           </div>
         </div>
 
         <div
-          class="sm:col-span-2 rounded-4xl overflow-hidden relative group shadow-xl"
+          class="sm:row-span-2 rounded-4xl overflow-hidden relative group shadow-md min-h-[150px] sm:min-h-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
-            alt="Tech"
+            src="https://images.unsplash.com/photo-1617269778723-73a40cf299bd?q=80&w=2070&auto=format&fit=crop"
+            alt="Renovables"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
+          >
+            <span
+              class="font-bold text-white italic tracking-tighter text-base md:text-lg uppercase"
+              >Renovables</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="sm:col-span-2 rounded-4xl overflow-hidden relative group shadow-xl min-h-[180px] sm:min-h-0"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071&auto=format&fit=crop"
+            alt="Agricultura"
             class="absolute inset-0 w-full h-full object-cover"
           />
           <div
-            class="absolute inset-0 bg-linear-to-r from-[#00236a] to-transparent p-10 flex flex-col justify-center items-start transition-all duration-500 group-hover:pl-14"
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
           >
             <p
-              class="font-bold text-white italic tracking-tighter text-2xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              class="font-bold text-white italic tracking-tighter text-2xl uppercase"
             >
-              Inmobiliaria
+              Agricultura
             </p>
-            <div
-              class="h-1 w-0 bg-blue-400 group-hover:w-24 transition-all duration-500"
-            >
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-4xl overflow-hidden relative group shadow-md">
-          <img
-            src="https://images.unsplash.com/photo-1466611653911-95282ee36567?auto=format&fit=crop&q=80&w=400"
-            alt="Energía"
-            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
-          <div
-            class="absolute inset-0 bg-white/80 group-hover:bg-white/40 transition-all duration-500 flex flex-col items-center justify-center"
-          >
-            <span
-              class="font-bold text-[#00236a] italic tracking-tighter text-xl uppercase transform group-hover:-translate-y-1 transition-transform"
-              >Profesionales</span
-            >
-            <div
-              class="h-1 w-0 bg-[#00236a] group-hover:w-12 transition-all duration-500"
-            >
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-4xl overflow-hidden relative group shadow-xl">
-          <img
-            src="https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&q=80&w=400"
-            alt="Naval"
-            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
-          <div
-            class="absolute inset-0 bg-[#00236a]/80 flex flex-col items-center justify-center group-hover:bg-[#00236a]/40 transition-all duration-500"
-          >
-            <span
-              class="font-bold text-blue-200 italic tracking-tighter text-xl uppercase group-hover:text-white transform group-hover:-translate-y-1 transition-all"
-              >Deportes y Cuidados</span
-            >
-            <div
-              class="h-1 w-0 bg-blue-400 group-hover:w-12 transition-all duration-500"
-            >
-            </div>
           </div>
         </div>
 
         <div
-          class="sm:col-span-2 rounded-4xl overflow-hidden relative group shadow-lg"
+          class="rounded-4xl overflow-hidden relative group shadow-md min-h-[150px] sm:min-h-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800"
-            alt="Ecommerce"
+            src="https://images.unsplash.com/photo-1729371568794-fb9c66ab09cf?q=80&w=2070&auto=format&fit=crop"
+            alt="Profesionales"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
+          >
+            <span
+              class="font-bold text-white italic tracking-tighter text-base md:text-lg uppercase"
+              >Profesionales</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="rounded-4xl overflow-hidden relative group shadow-xl min-h-[150px] sm:min-h-0"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1758875569256-f37c438cac65?q=80&w=1932&auto=format&fit=crop"
+            alt="Deportes"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
+          >
+            <span
+              class="font-bold text-white italic tracking-tighter text-xl uppercase"
+              >Deportes</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="sm:col-span-2 rounded-4xl overflow-hidden relative group shadow-lg min-h-[180px] sm:min-h-0"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072&auto=format&fit=crop"
+            alt="Transporte"
             class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
           />
           <div
-            class="absolute inset-0 bg-[#F7F6F6]/90 group-hover:bg-[#F7F6F6]/70 transition-all duration-500 flex flex-col justify-center items-start px-10"
+            class="absolute inset-0 bg-gradient-to-t from-[#001a4d] via-[#001a4d]/40 p-8 flex flex-col justify-end"
           >
             <span
-              class="font-bold text-[#00236a] italic tracking-tighter text-2xl uppercase transform group-hover:-translate-y-1 transition-transform"
+              class="font-bold text-white italic tracking-tighter text-base md:text-lg uppercase"
             >
-              Ocio y Disfrute
+              Transporte y Logística
             </span>
-            <div
-              class="h-1 w-0 bg-[#00236a] group-hover:w-24 transition-all duration-500"
-            >
-            </div>
           </div>
         </div>
       </div>
