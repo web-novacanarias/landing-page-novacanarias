@@ -5,11 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 
 import vercel from '@astrojs/vercel';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
 
-  adapter: vercel()
+  adapter: vercel(),
+  site: 'https://canariasnova.com',
+  integrations: [sitemap()]
 });

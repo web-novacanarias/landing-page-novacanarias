@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Asegúrate de que Googlebot pueda ver las imágenes
+User-agent: Googlebot
+Allow: /favicon.svg
+
+Sitemap: https://canariasnova.com/sitemap-index.xml

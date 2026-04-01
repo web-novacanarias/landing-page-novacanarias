@@ -148,7 +148,7 @@ import Layout from "../layouts/Layout.astro";
             class="relative w-full aspect-video overflow-hidden rounded-4xl lg:rounded-[3.5rem] border border-[#F7F6F6]/10 shadow-2xl transition-all duration-500"
           >
             <img
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
+              src="/images/presentacion.webp?q=80&w=1200&auto=format&fit=crop"
               alt="Oficinas Nova Consulting"
               class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
             />
@@ -946,7 +946,7 @@ import Layout from "../layouts/Layout.astro";
               class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
             >
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
+                src="/images/adan-nova.webp?auto=format&fit=crop&q=80&w=600"
                 class="w-full h-full object-cover pointer-events-none"
               />
               <div
@@ -954,21 +954,20 @@ import Layout from "../layouts/Layout.astro";
               >
               </div>
               <div class="absolute bottom-6 left-6">
-                <p class="text-white font-black italic text-xl">
-                  Nombre Apellido
-                </p>
+                <p class="text-white font-black italic text-xl">Adán Olmo</p>
                 <p
                   class="text-blue-300 text-xs font-bold uppercase tracking-widest"
                 >
-                  Socio Director
+                  Asesor Fiscal
                 </p>
               </div>
             </div>
+
             <div
               class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
             >
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                src="/images/david-nova.webp?auto=format&fit=crop&q=80&w=600"
                 class="w-full h-full object-cover pointer-events-none"
               />
               <div
@@ -977,70 +976,25 @@ import Layout from "../layouts/Layout.astro";
               </div>
               <div class="absolute bottom-6 left-6">
                 <p class="text-white font-black italic text-xl">
-                  Nombre Apellido
+                  David Montesdeoca
                 </p>
                 <p
                   class="text-blue-300 text-xs font-bold uppercase tracking-widest"
                 >
-                  Estrategia Digital
-                </p>
-              </div>
-            </div>
-            <div
-              class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
-                class="w-full h-full object-cover pointer-events-none"
-              />
-              <div
-                class="absolute inset-0 bg-linear-to-t from-[#00236a]/90 via-transparent to-transparent opacity-90"
-              >
-              </div>
-              <div class="absolute bottom-6 left-6">
-                <p class="text-white font-black italic text-xl">
-                  Nombre Apellido
-                </p>
-                <p
-                  class="text-blue-300 text-xs font-bold uppercase tracking-widest"
-                >
-                  Análisis Fiscal
-                </p>
-              </div>
-            </div>
-            <div
-              class="card absolute inset-0 rounded-4xl overflow-hidden shadow-2xl bg-white transition-all duration-500 origin-bottom"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
-                class="w-full h-full object-cover pointer-events-none"
-              />
-              <div
-                class="absolute inset-0 bg-linear-to-t from-[#00236a]/90 via-transparent to-transparent opacity-90"
-              >
-              </div>
-              <div class="absolute bottom-6 left-6">
-                <p class="text-white font-black italic text-xl">
-                  Nombre Apellido
-                </p>
-                <p
-                  class="text-blue-300 text-xs font-bold uppercase tracking-widest"
-                >
-                  Sostenibilidad
+                  CEO y Asesor Fiscal
                 </p>
               </div>
             </div>
           </div>
 
           <div
-            class="mt-8 flex items-center gap-2 text-slate-400 animate-pulse"
+            class="mt-12 flex items-center gap-2 text-slate-400 animate-pulse"
           >
             <svg
               class="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 stroke-linecap="round"
@@ -1056,74 +1010,76 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
     </div>
-  </section>
 
-  <style>
-    .card-at-back {
-      transform: scale(0.88) translateY(20px) rotate(-2deg);
-      z-index: 0;
-      opacity: 0.4;
-      filter: blur(1px);
-    }
-    .card-mid-2 {
-      transform: scale(0.92) translateY(12px) rotate(1.5deg);
-      z-index: 10;
-      opacity: 0.7;
-    }
-    .card-mid-1 {
-      transform: scale(0.96) translateY(6px) rotate(-1deg);
-      z-index: 20;
-      opacity: 0.9;
-    }
-    .card-front {
-      transform: scale(1) translateY(0) rotate(0deg);
-      z-index: 30;
-      opacity: 1;
-    }
-    .card-exit {
-      transform: translateX(-130%) rotate(-15deg) !important;
-      opacity: 0 !important;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-  </style>
-
-  <script>
-    function setupStack() {
-      const stack = document.getElementById("stack");
-      if (!stack) return;
-      let cards = Array.from(stack.querySelectorAll(".card"));
-      function updateStack() {
-        cards.forEach((card, i) => {
-          card.classList.remove(
-            "card-front",
-            "card-mid-1",
-            "card-mid-2",
-            "card-at-back",
-            "card-exit",
-          );
-          if (i === cards.length - 1) card.classList.add("card-front");
-          else if (i === cards.length - 2) card.classList.add("card-mid-1");
-          else if (i === cards.length - 3) card.classList.add("card-mid-2");
-          else card.classList.add("card-at-back");
-        });
+    <style>
+      .card-at-back {
+        transform: scale(0.88) translateY(20px) rotate(-2deg);
+        z-index: 0;
+        opacity: 0.4;
+        filter: blur(1px);
       }
-      stack.addEventListener("click", () => {
-        const topCard = cards[cards.length - 1];
-        if (!topCard) return;
-        topCard.classList.add("card-exit");
-        setTimeout(() => {
-          const movedCard = cards.pop();
-          if (movedCard) {
-            cards.unshift(movedCard);
-            updateStack();
-          }
-        }, 500);
-      });
-      updateStack();
-    }
-    document.addEventListener("DOMContentLoaded", setupStack);
-  </script>
+      .card-mid-2 {
+        transform: scale(0.92) translateY(12px) rotate(1.5deg);
+        z-index: 10;
+        opacity: 0.7;
+      }
+      .card-mid-1 {
+        transform: scale(0.96) translateY(6px) rotate(-1deg);
+        z-index: 20;
+        opacity: 0.9;
+      }
+      .card-front {
+        transform: scale(1) translateY(0) rotate(0deg);
+        z-index: 30;
+        opacity: 1;
+      }
+      .card-exit {
+        transform: translateX(-130%) rotate(-15deg) !important;
+        opacity: 0 !important;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+    </style>
 
+    <script>
+      function setupStack() {
+        const stack = document.getElementById("stack");
+        if (!stack) return;
+        let cards = Array.from(stack.querySelectorAll(".card"));
+
+        function updateStack() {
+          cards.forEach((card, i) => {
+            card.classList.remove(
+              "card-front",
+              "card-mid-1",
+              "card-mid-2",
+              "card-at-back",
+              "card-exit",
+            );
+            if (i === cards.length - 1) card.classList.add("card-front");
+            else if (i === cards.length - 2) card.classList.add("card-mid-1");
+            else if (i === cards.length - 3) card.classList.add("card-mid-2");
+            else card.classList.add("card-at-back");
+          });
+        }
+
+        stack.addEventListener("click", () => {
+          const topCard = cards[cards.length - 1];
+          if (!topCard) return;
+          topCard.classList.add("card-exit");
+          setTimeout(() => {
+            const movedCard = cards.pop();
+            if (movedCard) {
+              cards.unshift(movedCard);
+              updateStack();
+            }
+          }, 500);
+        });
+
+        updateStack();
+      }
+      document.addEventListener("DOMContentLoaded", setupStack);
+    </script>
+  </section>
   <!-- NEWSLETTER -->
   <section
     id="newsletter"
@@ -1279,13 +1235,35 @@ import Layout from "../layouts/Layout.astro";
   <section id="contacto" class="py-32 bg-[#00236a] text-[#F7F6F6]">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
       <div
-        class="aspect-square bg-[#F7F6F6]/5 border border-[#F7F6F6]/10 rounded-[3rem] overflow-hidden relative"
+        class="aspect-square bg-[#F7F6F6]/5 border border-[#F7F6F6]/10 rounded-[3rem] overflow-hidden relative group"
       >
-        <div class="absolute inset-0 bg-blue-900/20 mix-blend-overlay"></div>
         <div
-          class="w-full h-full bg-[#001a4d] flex items-center justify-center text-blue-300 italic"
+          class="absolute inset-0 bg-blue-900/20 mix-blend-overlay z-20 pointer-events-none"
         >
-          Foto Contacto
+        </div>
+
+        <img
+          id="slideshow-1"
+          src="/images/contacto.webp"
+          alt="Contacto Nova Consulting"
+          width="800"
+          height="800"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 z-0"
+        />
+
+        <img
+          id="slideshow-2"
+          src="/images/presentacion.webp"
+          alt="Presentación Nova Consulting"
+          width="800"
+          height="800"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 z-0"
+        />
+
+        <div
+          class="absolute inset-0 -z-10 bg-[#001a4d] flex items-center justify-center text-blue-300 italic text-xs"
+        >
+          Nova Consulting
         </div>
       </div>
 
@@ -1381,6 +1359,24 @@ import Layout from "../layouts/Layout.astro";
         contactBtn.innerText = originalText;
       }
     });
+
+    // LÓGICA DEL SLIDESHOW AUTOMÁTICO
+    const img1 = document.getElementById("slideshow-1");
+    const img2 = document.getElementById("slideshow-2");
+    let showFirst = true;
+
+    if (img1 && img2) {
+      setInterval(() => {
+        if (showFirst) {
+          img1.classList.replace("opacity-100", "opacity-0");
+          img2.classList.replace("opacity-0", "opacity-100");
+        } else {
+          img1.classList.replace("opacity-0", "opacity-100");
+          img2.classList.replace("opacity-100", "opacity-0");
+        }
+        showFirst = !showFirst;
+      }, 6000); // Cambia cada 4 segundos
+    }
   </script>
 
   <div
