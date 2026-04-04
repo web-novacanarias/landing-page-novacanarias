@@ -306,12 +306,15 @@ const {
 
       // 3. MANEJADOR DE CLICS ESTRÍCTO (Para evitar el # en el Nav)
       document.addEventListener("click", (e) => {
-        const link = e.target.closest("a");
+        // Casteamos e.target a HTMLElement para poder usar .closest()
+        const target = e.target as HTMLElement;
+        const link = target.closest("a");
+
         if (!link) return;
 
         const href = link.getAttribute("href");
 
-        // Si el enlace es un ancla (empieza por # o por /#)
+        // Solo aplicar scroll suave si es un ancla interna
         if (
           href &&
           (href.startsWith("#") ||
@@ -321,13 +324,11 @@ const {
           const targetElement = document.querySelector(id);
 
           if (targetElement) {
-            // DETENEMOS EL COMPORTAMIENTO POR DEFECTO (Esto evita que el # suba a la URL)
             e.preventDefault();
 
-            // Cerramos menú móvil si está abierto
+            // Cerramos el menú móvil si está abierto
             if (menu?.classList.contains("opacity-100")) toggleMenu();
 
-            // Scroll suave manual
             const offset = 100;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.scrollY - offset;
@@ -337,14 +338,12 @@ const {
               behavior: "smooth",
             });
 
-            // IMPORTANTE: No usamos window.location.hash ni pushState con el ID.
-            // Así la URL se mantiene limpia en la landing.
-            if (window.location.pathname.includes("formulario")) {
-              // Solo en formulario permitimos el hash si quieres que sea rastreable
-              window.history.replaceState(null, "", id);
-            } else {
-              // En la landing, forzamos que la URL se quede como está
+            // Lógica para que NO aparezca el # en la URL si estamos en la landing
+            if (!window.location.pathname.includes("formulario")) {
               window.history.replaceState(null, "", window.location.pathname);
+            } else {
+              // En formulario si quieres mantener el rastro del ID
+              window.history.replaceState(null, "", id);
             }
           }
         }
