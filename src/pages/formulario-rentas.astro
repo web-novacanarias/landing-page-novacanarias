@@ -2322,6 +2322,11 @@ const ejercicioRenta = anioActual - 1;
       window.addEventListener("resize", resizeCanvas);
       resizeCanvas();
 
+      clearButton?.addEventListener("click", (e) => {
+        e.preventDefault();
+        signaturePad.clear();
+      });
+
       resetButton?.addEventListener("click", (e) => {
         e.preventDefault(); // Evitamos comportamientos extraños
 
