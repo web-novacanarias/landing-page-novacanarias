@@ -189,7 +189,9 @@ const ejercicioRenta = anioActual - 1;
             >
             <p class="text-[10px] text-amber-700 mb-2 leading-tight">
               Dato imprescindible para que Nova Consulting obtenga su borrador
-              de la AEAT.
+              de la AEAT. <br />
+              En caso de no haber hecho la renta en 2024 establecer la cantidad de
+              0,00€
             </p>
             <input
               type="text"
@@ -502,38 +504,6 @@ const ejercicioRenta = anioActual - 1;
               </label>
             </div>
           </div>
-
-          <div class="pt-2">
-            <label class="block text-sm font-bold text-gray-700 mb-2">
-              • ¿Ha estado en situación de ERTE en el ejercicio {
-                ejercicioRenta
-              }? *
-            </label>
-            <div class="flex items-center gap-6">
-              <label
-                class="flex items-center gap-2 text-sm text-gray-900 cursor-pointer"
-              >
-                <input
-                  required
-                  type="radio"
-                  name="situacion_erte"
-                  value="si"
-                  class="w-4 h-4"
-                /> Sí
-              </label>
-              <label
-                class="flex items-center gap-2 text-sm text-gray-900 cursor-pointer"
-              >
-                <input
-                  required
-                  type="radio"
-                  name="situacion_erte"
-                  value="no"
-                  class="w-4 h-4"
-                /> No
-              </label>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -549,7 +519,7 @@ const ejercicioRenta = anioActual - 1;
         >
           <div class="pt-2">
             <label class="block text-sm font-bold text-gray-700 mb-2">
-              ¿Posee viviendas de las que obtenga ingresos por alquiler? *
+              ¿Posee inmuebles de las que obtenga ingresos por alquiler? *
             </label>
             <div class="flex items-center gap-6">
               <label
@@ -1421,30 +1391,35 @@ const ejercicioRenta = anioActual - 1;
                   />
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg">
-                  <p class="text-sm font-semibold text-gray-700 mb-2">
+                  <p class="text-sm font-semibold text-gray-800 mb-2">
                     ¿El préstamo hipotecario ha sido pedido para obras de
                     reforma o ampliación de la superficie útil de su vivienda?
                   </p>
                   <div class="flex gap-4">
                     <label
-                      class="flex items-center gap-2 text-sm cursor-pointer"
+                      class="flex items-center gap-2 text-sm cursor-pointer text-gray-900 font-medium"
                     >
                       <input
                         required
                         type="radio"
                         name="hipoteca_obras"
                         value="SI"
-                      /> Sí
+                        class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      />
+                      <span class="text-gray-900">Sí</span>
                     </label>
+
                     <label
-                      class="flex items-center gap-2 text-sm cursor-pointer"
+                      class="flex items-center gap-2 text-sm cursor-pointer text-gray-900 font-medium"
                     >
                       <input
                         required
                         type="radio"
                         name="hipoteca_obras"
                         value="NO"
-                      /> No
+                        class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      />
+                      <span class="text-gray-900">No</span>
                     </label>
                   </div>
                 </div>
@@ -1558,41 +1533,7 @@ const ejercicioRenta = anioActual - 1;
                   class="w-full border-gray-300 rounded-md border p-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500 font-bold"
                 />
               </div>
-              <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                <p class="text-sm font-bold text-gray-700 mb-3">
-                  ¿Su arrendador le redujo la renta anual del alquiler por
-                  COVID-19?
-                </p>
-                <div class="flex gap-6">
-                  <label
-                    class="flex items-center gap-2 text-sm font-medium text-gray-600 cursor-pointer group"
-                  >
-                    <input
-                      type="radio"
-                      name="alquiler_reduccion_covid"
-                      value="SI"
-                      class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                    />
-                    <span class="group-hover:text-blue-700 transition-colors"
-                      >Sí</span
-                    >
-                  </label>
-
-                  <label
-                    class="flex items-center gap-2 text-sm font-medium text-gray-600 cursor-pointer group"
-                  >
-                    <input
-                      type="radio"
-                      name="alquiler_reduccion_covid"
-                      value="NO"
-                      class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                    />
-                    <span class="group-hover:text-blue-700 transition-colors"
-                      >No</span
-                    >
-                  </label>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -1858,19 +1799,6 @@ const ejercicioRenta = anioActual - 1;
                   class="mt-0.5 w-4 h-4 rounded border-gray-300"
                 />
                 <span>Por donaciones a entidades sin ánimo de lucro</span>
-              </label>
-              <label
-                class="flex items-start gap-3 text-[11px] text-gray-900 cursor-pointer hover:bg-gray-50 p-1 rounded"
-              >
-                <input
-                  type="checkbox"
-                  name="can_just_donativos"
-                  class="mt-0.5 w-4 h-4 rounded border-gray-300"
-                />
-                <span
-                  >Justificación documental de las anteriores deducciones
-                  autonómicas por donativos</span
-                >
               </label>
               <label
                 class="flex items-start gap-3 text-[11px] text-gray-900 cursor-pointer hover:bg-gray-50 p-1 rounded"
