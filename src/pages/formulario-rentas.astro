@@ -1533,7 +1533,6 @@ const ejercicioRenta = anioActual - 1;
                   class="w-full border-gray-300 rounded-md border p-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500 font-bold"
                 />
               </div>
-              
             </div>
           </div>
         </div>
@@ -1673,22 +1672,25 @@ const ejercicioRenta = anioActual - 1;
             </label>
             <div class="relative">
               <span
-                class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 font-mono"
-                >IBAN</span
+                class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 font-mono text-xs"
               >
+                IBAN
+              </span>
+
               <input
                 type="text"
                 name="iban_completo"
                 required
-                placeholder="ES0000000000000000000000"
-                pattern="^[67][0-9 . -]{8,15}$"
-                title="El IBAN debe empezar por ES seguido de 22 dígitos"
-                class="w-full border-gray-300 rounded-md border p-2.5 pl-14 bg-white text-gray-900 font-mono focus:ring-2 focus:ring-blue-500 outline-none uppercase tracking-widest"
+                placeholder="ES00 0000 0000 0000 0000 0000"
+                maxlength="34"
+                minlength="20"
+                title="Introduce un IBAN válido"
+                class="w-full border-gray-300 rounded-md border p-2.5 pl-14 bg-white text-gray-900 font-mono focus:ring-2 focus:ring-blue-500 outline-none uppercase"
               />
             </div>
             <p class="text-[10px] text-gray-500 italic">
               Por favor, asegúrese de que los 24 caracteres son correctos, no
-              ponga espacios porfavor.
+              ponga espacios porfavor, aunque no es necesario.
             </p>
           </div>
 
