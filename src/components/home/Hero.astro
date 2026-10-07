@@ -5,36 +5,51 @@ import Icon from "../Icon.astro";
 import { SITE } from "../../lib/site";
 ---
 
-<section id="nova" class="relative px-5 pt-2 pb-12 sm:px-6 md:pt-8 lg:pb-20">
+<section id="nova" class="relative px-5 pt-6 pb-12 sm:px-6 md:pt-8 lg:pb-20">
   <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
     <div>
       <h1 class="enter text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
         Asesoría fiscal, laboral y contable
-        <span class="text-sky">para empresas exigentes</span>
+        <span class="block text-sky">para autónomos y empresas</span>
       </h1>
-      <p class="enter mt-6 max-w-xl text-lg leading-relaxed text-sky-soft/90 md:text-xl" style="--i:1">
-        Soluciones definitivas en fiscalidad, derecho laboral y mercantil, especializadas en el Régimen Económico y
-        Fiscal de Canarias (REF), para autónomos y empresas.
+      <p class="enter mt-5 max-w-xl text-base leading-relaxed text-sky-soft/90 sm:mt-6 sm:text-lg md:text-xl" style="--i:1">
+        Soluciones definitivas para negocios exigentes, con estrategia fiscal, laboral y mercantil especializada en el
+        Régimen Económico y Fiscal de Canarias (REF).
       </p>
-      <div class="enter mt-9 flex flex-col gap-3 sm:flex-row" style="--i:2">
-        <a
-          href="#contacto"
-          class="group inline-flex items-center justify-center gap-2 rounded-control bg-white px-8 py-4 text-base font-bold text-nova shadow-[0_12px_30px_-12px_rgba(0,17,47,0.7)] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-        >
-          Solicitar consulta
-          <Icon name="arrow-right" weight="bold" class="size-5 transition-transform group-hover:translate-x-1" />
-        </a>
-        <a
-          href="#servicios"
-          class="inline-flex items-center justify-center rounded-control border border-white/30 px-8 py-4 text-base font-bold text-white transition-colors hover:bg-white/10 active:scale-[0.98]"
-        >
-          Ver servicios
-        </a>
+      <div class="enter mt-8 sm:mt-9" style="--i:2">
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#contacto"
+            class="group inline-flex items-center justify-center gap-2 rounded-control bg-white px-8 py-4 text-base font-bold text-nova shadow-[0_12px_30px_-12px_rgba(0,17,47,0.7)] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+          >
+            Solicitar consulta
+            <Icon name="arrow-right" weight="bold" class="size-5 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="#servicios"
+            class="hidden items-center justify-center rounded-control border border-white/30 px-8 py-4 text-base font-bold text-white transition-colors hover:bg-white/10 active:scale-[0.98] sm:inline-flex"
+          >
+            Ver servicios
+          </a>
+        </div>
+
+        <!-- En móvil: una sola fila de enlaces bajo el botón principal, en lugar de dos botones apilados -->
+        <div class="mt-2 flex items-center justify-between gap-4 text-base text-sky-soft/90 sm:mt-3 sm:justify-start">
+          <a
+            href="#servicios"
+            class="inline-flex min-h-11 items-center font-bold text-white underline decoration-white/40 underline-offset-4 hover:text-sky sm:hidden"
+          >
+            Ver servicios
+          </a>
+          <p>
+            <span class="max-sm:sr-only">O llámanos:</span>
+            <a href={SITE.phoneHref} class="inline-flex min-h-11 items-center gap-2 font-bold text-white underline underline-offset-4 hover:text-sky">
+              <Icon name="phone" class="size-5 text-sky sm:hidden" />
+              {SITE.phone}
+            </a>
+          </p>
+        </div>
       </div>
-      <p class="enter mt-4 text-base text-sky-soft/90" style="--i:3">
-        O llámanos:
-        <a href={SITE.phoneHref} class="inline-block py-3 font-bold text-white underline underline-offset-4 hover:text-sky">{SITE.phone}</a>
-      </p>
     </div>
 
     <div class="relative">
