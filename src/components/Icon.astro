@@ -1,0 +1,40 @@
+---
+/**
+ * Iconos Phosphor (@phosphor-icons/core) inlineados como SVG.
+ * Una sola familia en toda la web. Solo se empaquetan los glifos listados abajo.
+ */
+const regular = import.meta.glob(
+  "/node_modules/@phosphor-icons/core/assets/regular/{calculator,chart-line-up,users-three,scales,buildings,handshake,shield-check,lock-key,map-pin,phone,envelope-simple,clock,arrow-right,arrow-up-right,list,x,calendar-check,check-circle,warning-circle,paper-plane-tilt,briefcase,seal-check,file-text,receipt,coins,compass,target,leaf,mountains,fork-knife,first-aid-kit,hard-hat,sun-dim,plant,person-simple-run,truck,arrows-clockwise,caret-right,check,stack,identification-card,heart,hand-coins,house-line,graduation-cap,warning}.svg",
+  { query: "?raw", import: "default", eager: true },
+) as Record<string, string>;
+
+const bold = import.meta.glob(
+  "/node_modules/@phosphor-icons/core/assets/bold/{arrow-right,arrow-up-right,check,x,list,paper-plane-tilt,check-circle,warning-circle}-bold.svg",
+  { query: "?raw", import: "default", eager: true },
+) as Record<string, string>;
+
+interface Props {
+  name: string;
+  weight?: "regular" | "bold";
+  class?: string;
+  label?: string;
+}
+
+const { name, weight = "regular", class: className = "size-6", label } = Astro.props;
+
+const source =
+  weight === "bold"
+    ? bold[`/node_modules/@phosphor-icons/core/assets/bold/${name}-bold.svg`]
+    : regular[`/node_modules/@phosphor-icons/core/assets/regular/${name}.svg`];
+
+if (!source) {
+  throw new Error(`Icon "${name}" (${weight}) no esta en la lista de Icon.astro`);
+}
+
+const a11y = label
+  ? `role="img" aria-label="${label}"`
+  : `aria-hidden="true" focusable="false"`;
+const svg = source.replace("<svg ", `<svg class="${className} shrink-0" ${a11y} `);
+---
+
+<Fragment set:html={svg} />

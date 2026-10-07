@@ -1,33 +1,143 @@
 @import "tailwindcss";
 
+/* Futura Std: los archivos viven en src/fonts y Vite los empaqueta con hash. */
 @font-face {
-  font-family: 'FuturaStd';
-  src: url('/fonts/FuturaStd-ExtraBold.otf') format('opentype');
+  font-family: "FuturaStd";
+  src: url("../fonts/FuturaStd-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaStd";
+  src: url("../fonts/FuturaStd-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaStd";
+  src: url("../fonts/FuturaStd-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaStd";
+  src: url("../fonts/FuturaStd-ExtraBold.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'FuturaStd';
-  src: url('/fonts/FuturaStd-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+/*
+ * Tokens de marca. Un solo acento azul con dos usos:
+ *   sky    -> texto y detalles sobre fondos azul marino
+ *   accent -> texto y detalles sobre fondos claros (paper)
+ * Forma: controles (botones, inputs) 12px, paneles e imagenes 24px, menu en pildora.
+ */
+@theme {
+  --font-sans: "FuturaStd", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+
+  --color-nova: #00236a;
+  --color-nova-deep: #001a4d;
+  --color-nova-night: #00112f;
+  --color-paper: #f7f6f6;
+  --color-ink: #0a1a3f;
+  --color-accent: #1e4fd8;
+  --color-sky: #8fb8ff;
+  --color-sky-soft: #c9dcff;
+
+  --radius-control: 0.75rem;
+  --radius-panel: 1.5rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@font-face {
-  font-family: 'FuturaStd';
-  src: url('/fonts/FuturaStd-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+@layer base {
+  html {
+    scroll-padding-top: 6.5rem;
+    scrollbar-color: #3a5fa8 var(--color-nova-deep);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-nova);
+    color: #fff;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-sky);
+    color: var(--color-nova);
+  }
+
+  :root {
+    --focus-ring: var(--color-sky);
+  }
+  .surface-light {
+    --focus-ring: var(--color-accent);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
 }
 
-@font-face {
-  font-family: 'FuturaStd';
-  src: url('/fonts/FuturaStd-Book.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/* Honeypot: fuera de pantalla (no display:none, que los bots detectan). */
+.hp {
+  position: absolute !important;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*
+ * Entrada al hacer scroll. Visible por defecto: solo se oculta si hay JS
+ * (html.js) y el usuario no pide menos movimiento.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.8s var(--ease-out-expo),
+      transform 0.8s var(--ease-out-expo);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

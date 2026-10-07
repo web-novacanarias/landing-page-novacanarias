@@ -1,0 +1,30 @@
+---
+import Icon from "../Icon.astro";
+
+const items = [
+  { icon: "calendar-check", value: "+15", label: "Años de experiencia, a tu servicio" },
+  { icon: "map-pin", value: "100%", label: "Origen canario: de aquí, para aquí" },
+  { icon: "chart-line-up", value: "TOP", label: "Tu crecimiento, nuestra prioridad" },
+  { icon: "stack", value: "3 en 1", label: "Fiscal, laboral y contable en un solo despacho" },
+];
+---
+
+<section aria-label="Datos destacados" class="border-y border-white/10 bg-nova-deep">
+  <ul class="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
+    {
+      items.map((item, i) => (
+        <li
+          class:list={[
+            "reveal flex flex-col gap-2.5 px-5 py-8 sm:px-6 md:gap-3 md:px-8 md:py-12",
+            "border-white/10 max-lg:nth-[n+3]:border-t max-lg:nth-[2n]:border-l lg:not-first:border-l",
+          ]}
+          style={`--i:${i}`}
+        >
+          <Icon name={item.icon} class="size-6 text-sky md:size-7" />
+          <p class="whitespace-nowrap text-3xl font-black leading-none tracking-tight text-white sm:text-4xl md:text-5xl">{item.value}</p>
+          <p class="text-sm leading-snug text-sky-soft/90 md:text-base">{item.label}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

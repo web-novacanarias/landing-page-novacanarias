@@ -1,0 +1,92 @@
+---
+import Icon from "../Icon.astro";
+
+// Tarjetas de cristal numeradas: se conservan como en el diseño original (decisión de la propiedad).
+// Los fragmentos que van dentro de un array se resaltan en cursiva y negrita, como antes.
+const puntos = [
+  {
+    n: "01",
+    icon: "chart-line-up",
+    titulo: "Reducción de carga fiscal",
+    partes: [
+      "Optimizamos estructuras legales para ",
+      ["reducir tu carga fiscal"],
+      ", sin cruzar una sola línea roja. Todo auditado.",
+    ],
+    fondo: "bg-white/10 hover:bg-white/20",
+  },
+  {
+    n: "02",
+    icon: "shield-check",
+    titulo: "Planificación fiscal personalizada",
+    partes: [
+      "No usamos plantillas. ",
+      ["Analizamos tu modelo"],
+      " de negocio y diseñamos una ",
+      ["estrategia a medida"],
+      ", maximizando deducciones y bonificaciones según sector y ubicación.",
+    ],
+    fondo: "bg-white/5 hover:bg-white/10",
+  },
+  {
+    n: "03",
+    icon: "lock-key",
+    titulo: "Blindaje ante inspecciones",
+    partes: [
+      ["Nos anticipamos"],
+      " al criterio de Hacienda. Preparamos tu documentación y operativa para que, ante una inspección, tengas ",
+      ["respaldo de informes"],
+      " técnicos, legales y contables de primer nivel.",
+    ],
+    fondo: "bg-white/5 hover:bg-white/10",
+  },
+];
+---
+
+<section
+  id="nosotros"
+  class="relative overflow-hidden bg-nova bg-[radial-gradient(60%_50%_at_90%_15%,rgba(143,184,255,0.12),transparent_70%)]"
+>
+  <div class="mx-auto max-w-7xl px-5 pb-16 pt-16 sm:px-6 lg:px-12 lg:pb-32 lg:pt-32">
+    <div class="flex flex-col gap-10 lg:flex-row lg:gap-24">
+      <div class="w-full lg:sticky lg:top-28 lg:h-fit lg:w-5/12">
+        <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+          Soluciones <span class="text-sky">progresivas</span> para negocios <span class="text-sky">progresivos</span>
+        </h2>
+        <p class="mt-6 max-w-md text-base leading-relaxed text-sky-soft/90 sm:text-lg md:mt-8 md:text-xl">
+          Acompañamos a negocios que apuestan por el crecimiento sostenible, la transformación digital y la toma de
+          decisiones con impacto real. Nuestro equipo combina experiencia, análisis y visión de futuro para ayudarte a
+          avanzar con confianza.
+        </p>
+      </div>
+
+      <ul class="grid w-full grid-cols-1 gap-4 sm:gap-5 lg:w-7/12">
+        {
+          puntos.map((p) => (
+            <li
+              class:list={[
+                "group rounded-[2rem] border border-white/10 p-6 backdrop-blur-xl transition-colors duration-500 sm:p-8",
+                p.fondo,
+              ]}
+            >
+              <div class="mb-4 flex items-start justify-between">
+                <span class="text-4xl font-black text-sky opacity-50 transition-opacity group-hover:opacity-100 sm:text-5xl">
+                  {p.n}
+                </span>
+                <span class="rounded-lg bg-paper/10 p-2 text-paper">
+                  <Icon name={p.icon} class="size-6" />
+                </span>
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-white sm:text-2xl">{p.titulo}</h3>
+              <p class="leading-relaxed text-sky-soft/90">
+                {p.partes.map((parte) =>
+                  Array.isArray(parte) ? <span class="font-bold italic text-sky">{parte[0]}</span> : parte,
+                )}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

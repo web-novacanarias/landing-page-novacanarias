@@ -1,0 +1,136 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
+import { SITE, absoluteUrl } from "../../lib/site";
+import { servicios, getServicio } from "../../data/servicios";
+
+export function getStaticPaths() {
+  return servicios.map((s) => ({ params: { slug: s.slug } }));
+}
+
+const { slug } = Astro.params;
+const servicio = getServicio(slug as string)!;
+const otros = servicios.filter((s) => s.slug !== servicio.slug);
+const url = absoluteUrl(`/servicios/${servicio.slug}/`);
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: servicio.seo.h1,
+  serviceType: servicio.nombre,
+  description: servicio.seo.description,
+  url,
+  provider: { "@id": `${SITE.url}/#negocio` },
+  areaServed: { "@type": "AdministrativeArea", name: "Canarias" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: absoluteUrl("/") },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: absoluteUrl("/#servicios") },
+    { "@type": "ListItem", position: 3, name: servicio.nombre, item: url },
+  ],
+};
+---
+
+<Layout title={servicio.seo.title} description={servicio.seo.description} jsonLd={[serviceSchema, breadcrumbSchema]}>
+  <main>
+    <section class="pb-16 pt-4 md:pb-24 md:pt-8">
+      <div class="mx-auto max-w-5xl px-6">
+        <nav aria-label="Migas de pan" class="text-sm text-sky-soft/80">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/" class="underline-offset-4 hover:text-white hover:underline">Inicio</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/#servicios" class="underline-offset-4 hover:text-white hover:underline">Servicios</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-white">{servicio.nombre}</li>
+          </ol>
+        </nav>
+
+        <Icon name={servicio.icon} class="mt-10 size-12 text-sky" />
+        <h1 class="mt-5 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-white md:text-6xl">
+          {servicio.seo.h1}
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-sky-soft/90 md:text-xl">{servicio.intro}</p>
+
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/#contacto"
+            class="group inline-flex items-center justify-center gap-2 rounded-control bg-white px-8 py-4 font-bold text-nova transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
+          >
+            Solicitar consulta
+            <Icon name="arrow-right" weight="bold" class="size-5 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href={SITE.phoneHref}
+            class="inline-flex items-center justify-center gap-2 rounded-control border border-white/30 px-8 py-4 font-bold text-white transition-colors hover:bg-white/10"
+          >
+            <Icon name="phone" class="size-5" />
+            {SITE.phone}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-light bg-paper py-20 md:py-28">
+      <div class="mx-auto max-w-5xl px-6">
+        <h2 class="text-3xl font-black tracking-tight text-ink md:text-5xl">Qué incluye</h2>
+        <ul class="mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
+          {
+            servicio.incluye.map((item) => (
+              <li class="flex items-start gap-4">
+                <Icon name="check-circle" class="mt-1 size-7 text-accent" />
+                <div>
+                  <h3 class="text-xl font-bold text-ink">{item.titulo}</h3>
+                  <p class="mt-2 text-base leading-relaxed text-slate-700">{item.texto}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-nova-deep py-20 md:py-28">
+      <div class="mx-auto grid max-w-5xl gap-12 px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">Para quién es</h2>
+        <ul class="divide-y divide-white/15 border-y border-white/15">
+          {
+            servicio.paraQuien.map((p) => (
+              <li class="py-5 text-lg leading-snug text-sky-soft">{p}</li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28">
+      <div class="mx-auto max-w-5xl px-6">
+        <h2 class="text-2xl font-black tracking-tight text-white md:text-4xl">Otros servicios</h2>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+          {
+            otros.map((o) => (
+              <li>
+                <a
+                  href={`/servicios/${o.slug}`}
+                  class="group flex items-center justify-between gap-4 rounded-panel border border-white/20 p-6 transition-colors hover:bg-white/10"
+                >
+                  <span class="flex items-center gap-4">
+                    <Icon name={o.icon} class="size-8 text-sky" />
+                    <span class="text-xl font-bold text-white">{o.nombre}</span>
+                  </span>
+                  <Icon name="arrow-right" weight="bold" class="size-5 text-sky transition-transform group-hover:translate-x-1" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-14 text-lg text-sky-soft/90">
+          ¿Tienes dudas sobre qué necesita tu negocio? <a href="/#contacto" class="font-bold text-white underline underline-offset-4">Cuéntanos tu caso</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>

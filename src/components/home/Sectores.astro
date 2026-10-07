@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import restauracion from "../../assets/sectores/restauracion.jpg";
+import salud from "../../assets/sectores/salud.jpg";
+import construccion from "../../assets/sectores/construccion.jpg";
+import renovables from "../../assets/sectores/renovables.jpg";
+import agricultura from "../../assets/sectores/agricultura.jpg";
+import profesionales from "../../assets/sectores/profesionales.jpg";
+import deportes from "../../assets/sectores/deportes.jpg";
+import transporte from "../../assets/sectores/transporte.jpg";
+
+// 8 sectores = 8 celdas exactas en la rejilla de 4 columnas (sin huecos).
+const sectores = [
+  { nombre: "Restauración", img: restauracion, alt: "Sala de un restaurante con mesas y sillas de madera", span: "lg:row-span-2", size: "text-base max-[359px]:text-sm sm:text-lg md:text-2xl lg:text-3xl" },
+  { nombre: "Salud y bienestar", img: salud, alt: "Pastillas blancas en un plato sobre hojas verdes", span: "", size: "text-base max-[359px]:text-sm sm:text-lg lg:text-xl" },
+  { nombre: "Construcción e inmobiliaria", img: construccion, alt: "Operarios con casco observando una obra desde una azotea", span: "", size: "text-base max-[359px]:text-sm sm:text-lg lg:text-xl" },
+  { nombre: "Renovables", img: renovables, alt: "Placas solares sobre una cubierta con la ciudad al fondo", span: "lg:row-span-2", size: "text-base sm:text-lg md:text-xl lg:text-2xl" },
+  { nombre: "Agricultura", img: agricultura, alt: "Agricultores trabajando en un campo de cultivo", span: "col-span-2", size: "text-xl md:text-2xl" },
+  { nombre: "Profesionales", img: profesionales, alt: "Dos profesionales trabajando con un portátil en una oficina", span: "", size: "text-base max-[359px]:text-sm sm:text-lg lg:text-xl" },
+  { nombre: "Deportes", img: deportes, alt: "Entrenamiento con pesas en un gimnasio", span: "", size: "text-base max-[359px]:text-sm sm:text-lg lg:text-xl" },
+  { nombre: "Transporte y logística", img: transporte, alt: "Almacén logístico con estanterías y palés", span: "col-span-2", size: "text-xl md:text-2xl" },
+];
+---
+
+<section id="sectores" class="surface-light bg-paper py-16 md:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-ink sm:text-4xl md:text-5xl">Sectores especializados</h2>
+
+    <ul class="mt-8 grid auto-rows-[10.5rem] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:gap-4 md:mt-16 lg:grid-cols-4">
+      {
+        sectores.map((s, i) => (
+          <li
+            class:list={["reveal relative overflow-hidden rounded-panel", s.span]}
+            style={`--i:${i % 4}`}
+          >
+            <Image
+              src={s.img}
+              alt={s.alt}
+              widths={[480, 800, 1200]}
+              sizes="(min-width: 1024px) 25vw, 50vw"
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 size-full object-cover"
+            />
+            <div class="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-nova-deep/95 via-nova-deep/55 to-transparent p-3.5 sm:p-6 md:p-8">
+              <h3 class:list={["font-bold leading-tight tracking-tight text-white", s.size]}>{s.nombre}</h3>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

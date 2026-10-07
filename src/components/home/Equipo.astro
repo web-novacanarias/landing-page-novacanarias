@@ -1,0 +1,164 @@
+---
+import { Image } from "astro:assets";
+import adan from "../../assets/equipo/adan-nova.webp";
+import david from "../../assets/equipo/david-nova.webp";
+import Icon from "../Icon.astro";
+
+const areas = [
+  { icon: "briefcase", label: "Dirección" },
+  { icon: "compass", label: "Estrategia" },
+  { icon: "calculator", label: "Fiscalidad" },
+  { icon: "leaf", label: "Sostenibilidad" },
+];
+
+const equipo = [
+  { nombre: "Adán Olmo", cargo: "Asesor Fiscal", img: adan, alt: "Adán Olmo, asesor fiscal de Nova Consulting" },
+  { nombre: "David Montesdeoca", cargo: "CEO y Asesor Fiscal", img: david, alt: "David Montesdeoca, CEO y asesor fiscal de Nova Consulting" },
+];
+---
+
+<section id="equipo" class="surface-light overflow-hidden border-t border-ink/10 bg-paper py-16 md:py-28">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="flex flex-col items-start gap-14 lg:flex-row lg:gap-16">
+      <div class="w-full lg:sticky lg:top-28 lg:w-5/12">
+        <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-ink sm:text-4xl md:text-5xl">
+          Equipo Nova
+          <span class="mt-3 block text-xl font-medium tracking-normal text-accent md:text-2xl">Sinergia y experiencia</span>
+        </h2>
+
+        <p class="mt-6 max-w-md text-lg leading-relaxed text-slate-700">
+          Un equipo multidisciplinar comprometido con el crecimiento sostenible y la seguridad jurídica de tu negocio en
+          las islas.
+        </p>
+
+        <ul class="mt-9 grid max-w-md grid-cols-2 gap-x-6 gap-y-5">
+          {
+            areas.map((a) => (
+              <li class="flex items-center gap-3 text-base font-medium text-ink">
+                <Icon name={a.icon} class="size-6 text-accent" />
+                {a.label}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="relative flex min-h-[30rem] w-full flex-col items-center justify-center md:min-h-[37rem] lg:w-7/12" style="--i:1">
+        <div
+          id="stack"
+          role="button"
+          tabindex="0"
+          aria-label="Ver a la siguiente persona del equipo"
+          class="relative aspect-[4/5] w-full max-w-[19rem] cursor-pointer rounded-panel md:max-w-[24rem]"
+        >
+          {
+            equipo.map((p) => (
+              <div class="card absolute inset-0 origin-bottom overflow-hidden rounded-panel bg-white shadow-2xl transition-all duration-500">
+                <Image
+                  src={p.img}
+                  alt={p.alt}
+                  widths={[400, 700]}
+                  sizes="(min-width: 768px) 384px, 304px"
+                  loading="lazy"
+                  decoding="async"
+                  class="pointer-events-none size-full object-cover"
+                />
+                <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-nova/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                  <h3 class="text-xl font-black text-white">{p.nombre}</h3>
+                  <p class="mt-1 text-sm font-medium text-sky-soft">{p.cargo}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <p id="stack-status" class="sr-only" aria-live="polite"></p>
+
+        <p class="mt-12 flex items-center gap-2 text-sm font-medium text-slate-600">
+          <Icon name="arrows-clockwise" class="size-5" />
+          Toca para descubrir al equipo
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card-at-back {
+    transform: scale(0.88) translateY(20px) rotate(-2deg);
+    z-index: 0;
+    opacity: 0.4;
+    filter: blur(1px);
+  }
+  .card-mid-2 {
+    transform: scale(0.92) translateY(12px) rotate(1.5deg);
+    z-index: 10;
+    opacity: 0.7;
+  }
+  .card-mid-1 {
+    transform: scale(0.96) translateY(6px) rotate(-1deg);
+    z-index: 20;
+    opacity: 0.9;
+  }
+  .card-front {
+    transform: scale(1) translateY(0) rotate(0deg);
+    z-index: 30;
+    opacity: 1;
+  }
+  .card-exit {
+    transform: translateX(-130%) rotate(-15deg) !important;
+    opacity: 0 !important;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+</style>
+
+<script>
+  // Pila de cartas del equipo: se conserva el comportamiento original (clic para pasar a la siguiente)
+  // y se añade teclado (Enter / Espacio) y anuncio para lectores de pantalla.
+  const stack = document.getElementById("stack");
+  const status = document.getElementById("stack-status");
+
+  if (stack) {
+    const cards = Array.from(stack.querySelectorAll<HTMLElement>(".card"));
+    let busy = false;
+
+    const nameOf = (card: HTMLElement | undefined) => card?.querySelector("h3")?.textContent ?? "";
+
+    function updateStack() {
+      cards.forEach((card, i) => {
+        card.classList.remove("card-front", "card-mid-1", "card-mid-2", "card-at-back", "card-exit");
+        if (i === cards.length - 1) card.classList.add("card-front");
+        else if (i === cards.length - 2) card.classList.add("card-mid-1");
+        else if (i === cards.length - 3) card.classList.add("card-mid-2");
+        else card.classList.add("card-at-back");
+      });
+    }
+
+    function next() {
+      if (busy) return;
+      const top = cards[cards.length - 1];
+      if (!top) return;
+      busy = true;
+      top.classList.add("card-exit");
+      setTimeout(() => {
+        const moved = cards.pop();
+        if (moved) {
+          cards.unshift(moved);
+          updateStack();
+          if (status) status.textContent = `Mostrando a ${nameOf(cards[cards.length - 1])}`;
+        }
+        busy = false;
+      }, 500);
+    }
+
+    stack.addEventListener("click", next);
+    stack.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        next();
+      }
+    });
+
+    updateStack();
+  }
+</script>

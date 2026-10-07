@@ -1,0 +1,133 @@
+---
+import Icon from "../Icon.astro";
+---
+
+<!-- Aviso de cookies (solo almacenamiento técnico: recuerda esta decisión) -->
+<div
+  id="cookie-banner"
+  hidden
+  role="region"
+  aria-label="Aviso de cookies"
+  class="fixed inset-x-0 bottom-0 z-[60] translate-y-full border-t border-white/15 bg-nova-deep/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] text-white opacity-0 shadow-2xl backdrop-blur-md transition-[transform,opacity] duration-700 ease-out-expo data-[show=true]:translate-y-0 data-[show=true]:opacity-100 md:inset-x-auto md:bottom-6 md:left-6 md:max-w-sm md:rounded-panel md:border"
+>
+  <div class="flex items-center gap-3 sm:gap-4">
+    <p class="text-xs leading-snug text-sky-soft sm:text-sm">
+      Usamos cookies para mejorar tu experiencia.
+      <a href="/legal/cookies" class="font-bold text-white underline underline-offset-2">Ver política</a>.
+    </p>
+    <button
+      id="accept-cookies"
+      type="button"
+      class="min-h-11 shrink-0 rounded-control bg-white px-5 py-2.5 text-sm font-bold text-nova transition-colors hover:bg-sky-soft"
+    >
+      Aceptar
+    </button>
+  </div>
+</div>
+
+<!-- Aviso de campaña de la Renta: solo de abril a junio -->
+<div
+  id="renta-banner"
+  hidden
+  role="region"
+  aria-label="Campaña de la Renta"
+  class="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-40 w-[calc(100%-1.5rem)] max-w-3xl -translate-x-1/2 rounded-panel border border-sky/40 bg-nova-night px-4 py-3 text-white sm:px-5 sm:py-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-[bottom] duration-500 ease-out-expo"
+>
+  <div class="flex items-center justify-between gap-3 sm:gap-4">
+    <div class="flex min-w-0 items-center gap-4">
+      <Icon name="calendar-check" class="hidden size-8 text-sky sm:block" />
+      <div>
+        <p class="text-sm font-bold leading-tight sm:text-base">
+          <span class="sm:hidden">Renta <span data-year></span></span>
+          <span class="hidden sm:inline">Campaña de la Renta <span data-year></span></span>
+        </p>
+        <p class="mt-0.5 hidden text-sm text-sky-soft sm:block">Cuestionario online ya disponible.</p>
+      </div>
+    </div>
+    <div class="flex shrink-0 items-center gap-1 sm:gap-2">
+      <a
+        href="/formulario-rentas"
+        class="inline-flex min-h-11 items-center whitespace-nowrap rounded-control bg-white px-4 text-center text-sm font-bold text-nova transition-transform hover:scale-[1.03] active:scale-95 sm:px-5"
+      >
+        Rellenar ahora
+      </a>
+      <button
+        id="renta-close"
+        type="button"
+        aria-label="Cerrar aviso de la campaña de la Renta"
+        class="grid size-11 shrink-0 place-items-center rounded-control text-sky-soft transition-colors hover:bg-white/10 hover:text-white"
+      >
+        <Icon name="x" weight="bold" class="size-5" />
+      </button>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Mientras el aviso de cookies está visible, el de la Renta sube para no taparse. */
+  html[data-cookies="pending"] #renta-banner {
+    display: none;
+  }
+  @media (min-width: 640px) {
+    html[data-cookies="pending"] #renta-banner {
+      display: block;
+      bottom: 6rem;
+    }
+  }
+</style>
+
+<script>
+  const root = document.documentElement;
+
+  // --- Cookies ---
+  const cookie = document.getElementById("cookie-banner");
+  let accepted = false;
+  try {
+    accepted = localStorage.getItem("cookies-accepted") === "true";
+  } catch {
+    /* almacenamiento bloqueado: se muestra el aviso */
+  }
+
+  if (cookie && !accepted) {
+    root.dataset.cookies = "pending";
+    setTimeout(() => {
+      cookie.hidden = false;
+      requestAnimationFrame(() => (cookie.dataset.show = "true"));
+    }, 1500);
+  }
+
+  document.getElementById("accept-cookies")?.addEventListener("click", () => {
+    try {
+      localStorage.setItem("cookies-accepted", "true");
+    } catch {
+      /* ignorar */
+    }
+    if (cookie) cookie.dataset.show = "false";
+    delete root.dataset.cookies;
+    setTimeout(() => cookie && (cookie.hidden = true), 700);
+  });
+
+  // --- Renta: abril (3) a junio (5) ---
+  const renta = document.getElementById("renta-banner");
+  const now = new Date();
+  let dismissed = false;
+  try {
+    dismissed = sessionStorage.getItem("renta-dismissed") === "true";
+  } catch {
+    /* ignorar */
+  }
+
+  if (renta && !dismissed && now.getMonth() >= 3 && now.getMonth() <= 5) {
+    document.querySelectorAll<HTMLElement>("[data-year]").forEach((el) => (el.textContent = String(now.getFullYear() - 1)));
+    renta.hidden = false;
+  }
+
+  document.getElementById("renta-close")?.addEventListener("click", () => {
+    if (renta) renta.hidden = true;
+    try {
+      sessionStorage.setItem("renta-dismissed", "true");
+    } catch {
+      /* ignorar */
+    }
+  });
+</script>

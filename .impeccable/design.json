@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T00:00:00Z",
+  "title": "Design System: Nova Consulting",
+  "extensions": {
+    "colorMeta": {
+      "nova": { "role": "primary", "displayName": "Nova Navy", "canonical": "#00236a", "tonalRamp": ["#000a24", "#00133a", "#00236a", "#1a3d85", "#4a67a3", "#7d93bf", "#b3bfd9", "#e6eaf3"] },
+      "sky": { "role": "primary", "displayName": "Sky Blue", "canonical": "#8fb8ff", "tonalRamp": ["#1a2f55", "#2f528f", "#4f7ccc", "#6d9ae6", "#8fb8ff", "#adcbff", "#c9dcff", "#e8f0ff"] },
+      "accent": { "role": "primary", "displayName": "Signal Blue", "canonical": "#1e4fd8", "tonalRamp": ["#0a1d52", "#10308a", "#1640b8", "#1e4fd8", "#4a73e3", "#7c98ec", "#aabbf3", "#dbe3fa"] },
+      "nova-deep": { "role": "neutral", "displayName": "Deep Navy", "canonical": "#001a4d", "tonalRamp": ["#000a24", "#001236", "#001a4d", "#173366", "#46598a", "#7a88ab", "#b0b8cd", "#e4e7ee"] },
+      "nova-night": { "role": "neutral", "displayName": "Night Navy", "canonical": "#00112f", "tonalRamp": ["#00050f", "#000b20", "#00112f", "#16294a", "#455571", "#7a859a", "#b0b6c2", "#e4e6ea"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f7f6f6", "tonalRamp": ["#3d3d3d", "#666666", "#8f8f8f", "#b5b5b5", "#d0d0d0", "#e5e4e4", "#f1f0f0", "#f7f6f6"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0a1a3f", "tonalRamp": ["#030812", "#060f26", "#0a1a3f", "#243459", "#4d5a7a", "#7d87a0", "#b0b6c4", "#e3e5ea"] },
+      "sky-soft": { "role": "neutral", "displayName": "Mist Blue", "canonical": "#c9dcff", "tonalRamp": ["#2a3a5c", "#4a6194", "#6f8cc4", "#94b0e3", "#b0c8f5", "#c9dcff", "#dde8ff", "#f0f5ff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Home h1 only; Futura 900." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2s; Futura 900." },
+      "title": { "displayName": "Title", "purpose": "Service names and principle titles." },
+      "body": { "displayName": "Body", "purpose": "Intros and descriptions at 400, relaxed leading." },
+      "label": { "displayName": "Label", "purpose": "Nav, form labels, footer links at 500." }
+    },
+    "shadows": [
+      { "name": "button-lift", "value": "0 12px 30px -12px rgba(0,17,47,0.7)", "purpose": "Primary button on navy." },
+      { "name": "hero-photo", "value": "0 30px 60px -30px rgba(0,10,40,0.9)", "purpose": "Hero photo panel." },
+      { "name": "nav-float", "value": "0 10px 30px -10px rgba(0,17,47,0.6)", "purpose": "Floating pill nav." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Scroll reveal and panel transitions." },
+      { "name": "reveal", "value": "opacity 0 to 1, translateY 16px to 0, 0.8s, 80ms stagger", "purpose": "Stats strip and sector tiles only; disabled under reduced motion." },
+      { "name": "contact-crossfade", "value": "14s ease-in-out infinite", "purpose": "Two contact photos crossfade." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "White fill on navy; main call to action.",
+      "html": "<button class=\"ds-btn-primary\">Solicitar consulta</button>",
+      "css": ".ds-btn-primary { background: #fff; color: var(--color-nova, #00236a); padding: 16px 32px; border: 0; border-radius: 12px; font-weight: 700; font-size: 16px; box-shadow: 0 12px 30px -12px rgba(0,17,47,0.7); transition: transform .2s; cursor: pointer; } .ds-btn-primary:hover { transform: translateY(-2px); } .ds-btn-primary:active { transform: scale(.98); } .ds-btn-primary:focus-visible { outline: 3px solid #8fb8ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined companion to the primary.",
+      "html": "<button class=\"ds-btn-secondary\">Ver servicios</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #fff; padding: 16px 32px; border: 1px solid rgba(255,255,255,.3); border-radius: 12px; font-weight: 700; font-size: 16px; transition: background .2s; cursor: pointer; } .ds-btn-secondary:hover { background: rgba(255,255,255,.1); } .ds-btn-secondary:focus-visible { outline: 3px solid #8fb8ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Translucent field on navy with sky focus.",
+      "html": "<input class=\"ds-input\" placeholder=\"Email\" />",
+      "css": ".ds-input { width: 100%; box-sizing: border-box; background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.6); border-radius: 12px; padding: 14px 16px; font-size: 16px; transition: border-color .2s, background .2s; } .ds-input::placeholder { color: rgba(201,220,255,.7); } .ds-input:hover { border-color: rgba(255,255,255,.8); } .ds-input:focus { outline: none; border-color: #8fb8ff; background: rgba(255,255,255,.15); } .ds-input:focus-visible { box-shadow: 0 0 0 2px #8fb8ff; }"
+    },
+    {
+      "name": "Pill Nav",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Floating deep-navy pill with sky-soft links and a white CTA.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Servicios</a><a href=\"#\">Nosotros</a><a href=\"#\">Sectores</a><a class=\"ds-nav-cta\" href=\"#\">Contacto</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 32px; padding: 10px 20px; border: 1px solid rgba(255,255,255,.15); border-radius: 9999px; background: rgba(0,26,77,.92); box-shadow: 0 10px 30px -10px rgba(0,17,47,.6); font-size: 14px; font-weight: 500; } .ds-nav a { color: #c9dcff; text-decoration: none; transition: color .2s; } .ds-nav a:hover { color: #fff; } .ds-nav a:focus-visible { outline: 3px solid #8fb8ff; outline-offset: 3px; } .ds-nav .ds-nav-cta { background: #fff; color: #00236a; padding: 8px 20px; border-radius: 9999px; font-weight: 700; }"
+    },
+    {
+      "name": "Hairline Service Row",
+      "kind": "custom",
+      "refersTo": "hairline-list",
+      "description": "Signature list row on paper: icon, 900 title, body, accent link between 1px rules.",
+      "html": "<article class=\"ds-row\"><h3>Fiscalidad</h3><p>Planificacion y declaraciones adaptadas al REF.</p><a href=\"#\">Ver fiscalidad</a></article>",
+      "css": ".ds-row { background: #f7f6f6; border-top: 1px solid rgba(10,26,63,.15); border-bottom: 1px solid rgba(10,26,63,.15); padding: 40px 24px; color: #0a1a3f; } .ds-row h3 { margin: 0; font-size: 32px; font-weight: 900; letter-spacing: -0.025em; } .ds-row p { margin: 16px 0 0; max-width: 28rem; color: #334155; line-height: 1.6; } .ds-row a { display: inline-block; margin-top: 24px; color: #1e4fd8; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(30,79,216,.3); text-underline-offset: 4px; } .ds-row a:hover { color: #00236a; } .ds-row a:focus-visible { outline: 3px solid #1e4fd8; outline-offset: 3px; }"
+    },
+    {
+      "name": "Sector Tile",
+      "kind": "card",
+      "refersTo": "photo-panel",
+      "description": "24px photo panel with deep-navy scrim and white name.",
+      "html": "<div class=\"ds-tile\"><div class=\"ds-tile-scrim\"><h3>Renovables</h3></div></div>",
+      "css": ".ds-tile { position: relative; height: 200px; overflow: hidden; border-radius: 24px; background: #001a4d; } .ds-tile-scrim { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; background: linear-gradient(to top, rgba(0,26,77,.95), rgba(0,26,77,.55), transparent); } .ds-tile h3 { margin: 0; color: #fff; font-size: 24px; font-weight: 700; letter-spacing: -0.025em; }"
+    },
+    {
+      "name": "Stat Cell",
+      "kind": "custom",
+      "refersTo": "stats-strip",
+      "description": "Cell of the deep-navy stats strip.",
+      "html": "<div class=\"ds-stat\"><strong>+15</strong><span>Anos de experiencia, a tu servicio</span></div>",
+      "css": ".ds-stat { display: flex; flex-direction: column; gap: 12px; padding: 36px 24px; background: #001a4d; border-left: 1px solid rgba(255,255,255,.1); } .ds-stat strong { color: #fff; font-size: 44px; font-weight: 900; line-height: 1; letter-spacing: -0.025em; } .ds-stat span { color: rgba(201,220,255,.9); font-size: 14px; line-height: 1.35; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Calm Despacho",
+    "overview": "A Canarian professional firm that speaks plainly. The page is a navy ground with off-white paper sections interleaved; structure comes from weight contrast (Futura 900 headlines against 400 body) and hairline-ruled lists rather than grids of cards. Photography is real (desk, offices, sector scenes), never illustration. One blue accent does all the emphasis, in two tones matched to the ground it sits on.",
+    "keyCharacteristics": [
+      "Navy ground (#00236a) with a deeper band (#001a4d) and paper (#f7f6f6) sections.",
+      "Hairline-ruled lists (services, principles, audience) in place of card grids.",
+      "Weight contrast in one family: 900 headlines, 400 body, 700 for links and buttons.",
+      "Real photography in 24px-radius panels; Phosphor icons only.",
+      "Flat surfaces; depth from tonal bands and a few soft shadows on floating or lifted items."
+    ],
+    "rules": [
+      { "name": "The Two-Tone Accent Rule", "body": "There is one accent. Use sky on navy grounds and accent on paper grounds; never sky on paper, never accent on navy. Light sections carry the surface-light class so the focus ring flips with the ground.", "section": "colors" },
+      { "name": "The Ground Pairing Rule", "body": "Text on navy is white or sky-soft; text on paper is ink or slate-700. Do not mix.", "section": "colors" },
+      { "name": "The Weight Does the Work Rule", "body": "Hierarchy is 900 versus 400 with size steps; never add a second face or a decorative display font.", "section": "typography" },
+      { "name": "The Tonal Bands Rule", "body": "Separate sections by changing the ground (navy, deep navy, paper), not by adding shadows or card outlines.", "section": "elevation" },
+      { "name": "The 12/24 Rule", "body": "If it is clickable or typeable it is 12px; if it holds an image or groups content it is 24px.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do alternate nova, nova-deep and paper bands to pace the page; put surface-light on every paper section.",
+      "Do use sky on navy and accent on paper for all highlighted words, icons and links.",
+      "Do build lists as hairline-ruled rows, with 900 titles over 400 body.",
+      "Do use real photographs in 24px panels with descriptive Spanish alt text.",
+      "Do import icons through Icon.astro (Phosphor, regular, bold only for arrows and actions) and register new glyphs in its glob list.",
+      "Do put the reveal class only on the stats strip and sector tiles, and respect reduced motion."
+    ],
+    "donts": [
+      "Don't use a second typeface or a weight outside 400/500/700/900.",
+      "Don't use hard offset shadows or heavy card grids with shadows to separate content.",
+      "Don't introduce a second accent hue; semantic emerald and red are for form status only.",
+      "Don't use 12px on a panel or 24px on a control.",
+      "Don't extend the owner-kept Newsletter or team-stack styling to new sections."
+    ]
+  }
+}

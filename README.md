@@ -1,46 +1,38 @@
-# Astro Starter Kit: Basics
+# Nova Consulting (canariasnova.com)
+
+Web de Canarias Nova Consulting SL. Astro 6 + Tailwind 4, desplegada en Vercel.
+
+## Desarrollo
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev      # http://localhost:4321
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Variables de entorno: ver `.env.example`.
 
-## 🚀 Project Structure
+## Estructura
 
-Inside of your Astro project, you'll see the following folders and files:
+| Ruta | Qué es |
+|---|---|
+| `src/pages/index.astro` | Home, compuesta por `src/components/home/*` |
+| `src/pages/servicios/[slug].astro` | Páginas de servicio (datos en `src/data/servicios.ts`) |
+| `src/pages/formulario-rentas.astro` | Cuestionario de la campaña de la Renta (independiente) |
+| `src/pages/api/contact.ts`, `newsletter.ts` | Endpoints de los formularios |
+| `src/lib/form-guard.ts` | Defensas anti-bot compartidas por los endpoints |
+| `src/lib/site.ts` | Datos de negocio (teléfono, email, horario) y JSON-LD |
+| `src/styles/global.css` | Tokens de marca (`@theme`), fuentes y estilos base |
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Formularios y bots
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Capas, en orden: comprobación de origen (Astro + `isSameOrigin`), honeypot `website_url`
+(fuera de pantalla), tiempo mínimo de 2,5 s (`ts`), rate limit en memoria, validación y
+escape de HTML, y Cloudflare Turnstile si hay claves. El honeypot y el control de tiempo
+responden con un éxito falso para que el bot no reintente. Para un límite de peticiones
+global, añadir una regla de rate limit en el Firewall de Vercel sobre `/api/*`.
 
-## 🧞 Commands
+## SEO
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Dominio canónico `https://www.canariasnova.com`. `vercel.json` redirige el apex a www (308).
+Canonical, Open Graph y JSON-LD se generan por página en `src/layouts/Layout.astro`.
