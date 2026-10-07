@@ -274,8 +274,8 @@ const year = new Date().getFullYear();
         if (menu?.dataset.open === "true" && !(e.target as HTMLElement).closest("nav")) setMenu(false);
       });
 
-      // Entrada al hacer scroll: una sola animación para toda la web (ver .reveal en global.css).
-      const items = document.querySelectorAll<HTMLElement>(".reveal");
+      // Entrada al hacer scroll: cada sección tiene su propio estilo (.reveal, .draw, .settle, .unveil en global.css).
+      const items = document.querySelectorAll<HTMLElement>(".reveal, .draw, .settle, .unveil");
       if ("IntersectionObserver" in window) {
         const io = new IntersectionObserver(
           (entries) => {

@@ -82,11 +82,11 @@ components:
 
 A Canarian professional firm that speaks plainly. The page is a navy ground with off-white paper sections interleaved; structure comes from weight contrast (Futura 900 headlines against 400 body) and hairline-ruled lists rather than grids of cards. Photography is real (desk, offices, sector scenes), never illustration. One blue accent does all the emphasis, in two tones matched to the ground it sits on.
 
-Density is generous: large section padding, wide measure limits, one idea per band. Motion is quiet: a single scroll-reveal (fade plus 16px rise) on the stats strip and sector tiles, small hover lifts on buttons, and a slow crossfade between two contact photos. All motion is disabled under prefers-reduced-motion.
+Density is generous: large section padding, wide measure limits, one idea per band. Motion is quiet and each section has its own entrance, never the same one twice: the hero rises on load (transform only, so LCP is untouched), the stats and section headings fade in with a 16px rise, service rows draw their rule line, the Nosotros pieces settle in order, and sector and contact photos unveil from the bottom. Plus small hover lifts on buttons and a slow crossfade between two contact photos. Everything is visible by default and only hidden when JS is on and the visitor has not asked for reduced motion.
 
 **Key Characteristics:**
 - Navy ground (#00236a) with a deeper band (#001a4d) and paper (#f7f6f6) sections.
-- Hairline-ruled lists (services, principles, audience) in place of card grids.
+- Hairline-ruled lists (services, audience) in place of card grids; Nosotros is the one exception, an asymmetric trio of three different surfaces (deep navy, paper, outline).
 - Weight contrast in one family: 900 headlines, 400 body, 700 for links and buttons.
 - Real photography in 24px-radius panels; Phosphor icons only.
 - Flat surfaces; depth from tonal bands and a few soft shadows on floating or lifted items.
@@ -133,7 +133,7 @@ A single blue accent on two grounds: pale sky on navy, saturated blue on paper. 
 
 ## Layout
 
-Single column bands, each a `max-w-7xl` container (1280px; service pages 1024px) with 24px side padding and 80px/112px (mobile/desktop) vertical section padding. Two-column bands (hero 1.2fr/1fr, Nosotros and Equipo 5/12 + 7/12) put the headline in a sticky left column (`top-28`) and the content on the right. Lists are separated by 1px hairlines at 15% ink or white opacity. The sector mosaic is a 4-column grid of 200px rows with row and column spans, 16px gap, with no empty cells. The stats strip is 4 columns (2 on mobile) separated by hairline dividers. Fixed header floats 16px from the top; content is offset by 96px mobile / 128px desktop; anchors use 6.5rem scroll padding. Breakpoints are Tailwind defaults (sm 640, md 768, lg 1024).
+Single column bands, each a `max-w-7xl` container (1280px; service pages 1024px) with 24px side padding and 80px/112px (mobile/desktop) vertical section padding. Two-column bands (hero 1.2fr/1fr, Nosotros and Equipo 5/12 + 7/12) put the headline in a sticky left column (`top-28`) and the content on the right. Legal pages use a navy title band over a single paper reading column (`max-w-3xl`, about 65 characters per line). Lists are separated by 1px hairlines at 15% ink or white opacity. The sector mosaic is 8 tiles in a 2-column grid on mobile and tablet and 4 columns from 1024px, with row and column spans, no empty cells. The stats strip is 4 columns (2 on mobile) separated by hairline dividers. Fixed header floats 16px from the top; content is offset by 96px mobile / 128px desktop; anchors use 6.5rem scroll padding. Breakpoints are Tailwind defaults (sm 640, md 768, lg 1024).
 
 ## Elevation & Depth
 
@@ -165,13 +165,22 @@ Three radii: controls (buttons, inputs, icon buttons, notice actions) 12px; pane
 Floating pill (max 1152px) in deep navy at 92% with white/15 border and backdrop blur; sky-soft links at 14px/500 turning white; a small white pill CTA. On mobile a hamburger opens a 24px-radius panel with hairline-separated links and a full-width white CTA.
 
 ### Hairline List
-The signature pattern: rows between top and bottom 1px rules, a Phosphor icon at left in the accent tone, a 900 title, 400 body, a bold text link, and a checklist at right. Used for Servicios, Nosotros principles, and "Para quién es".
+The signature pattern: rows between top and bottom 1px rules, a Phosphor icon at left in the accent tone, a 900 title, 400 body, a bold text link, and a checklist at right. Used for Servicios and "Para quién es".
+
+### Nosotros Trio
+Three 24px panels with deliberately different weight: a wide deep-navy principal piece, a paper piece that breaks the blue ground, and an outline piece. Each has an icon, a 900 title and body with bold key phrases. They settle in one after another (`.settle`).
 
 ### Sector Tile
-Photo in a 24px panel with a deep-navy bottom scrim and a white bold name at the lower left; sizes vary by span. Reveals on scroll.
+Self-hosted, optimized photo in a 24px panel with a deep-navy bottom scrim and a white bold name at the lower left; sizes vary by span. Unveils from the bottom on scroll (`.unveil`).
 
 ### Stats Strip
 Deep navy band, 4 cells divided by hairlines: sky icon, 900 figure at 2.25rem to 3rem, sky-soft caption. Reveals on scroll with an 80ms stagger.
+
+### Legal Page
+Layout `Legal.astro`: navy band with a back link and the 900 h1, then paper with a prose column. Sections are 900 h2s with more space above than below; identifying data is a ruled label/value list (no coloured side bars); a closing nav links the other two documents. Axe-clean at 320, 768 and 1440.
+
+### Motion Classes
+`.reveal` (fade and rise: stats, headings, contact column), `.enter*` (hero, on load), `.draw` (Servicios rule line), `.settle` (Nosotros and Equipo), `.unveil` (sector and contact photos). One IntersectionObserver in `Layout.astro` toggles `is-visible`.
 
 ### Owner-kept exceptions (not system rules)
 - **Team card stack (Equipo.astro):** interactive stacked photo cards, kept as the owner built it. Its `shadow-2xl` and card behavior are not a pattern to extend.
@@ -186,7 +195,7 @@ Deep navy band, 4 cells divided by hairlines: sky icon, 900 figure at 2.25rem to
 - **Do** build lists as hairline-ruled rows, with 900 titles over 400 body.
 - **Do** use real photographs in 24px panels with descriptive Spanish alt text.
 - **Do** import icons through `Icon.astro` (Phosphor, regular, bold only for arrows and actions) and register new glyphs in its glob list.
-- **Do** put the reveal class only on the stats strip and sector tiles, and respect reduced motion.
+- **Do** give each section its own entrance from the motion classes above, add no new loops, and always leave content visible without JS or under reduced motion.
 
 ### Don't:
 - **Don't** use a second typeface or a weight outside 400/500/700/900.
@@ -198,4 +207,3 @@ Deep navy band, 4 cells divided by hairlines: sky icon, 900 figure at 2.25rem to
 ### Not canonized (defects the build carries)
 - The Newsletter "Newsletter Exclusiva" uppercase pill with ping dot is a kicker/eyebrow; it is kept by the owner and not a rule for new surfaces.
 - The 404 "Error 404" small sky line above the h1 is an eyebrow-style label; do not replicate it.
-- The "TOP" stat in Destacados is a placeholder-like claim, not a token.

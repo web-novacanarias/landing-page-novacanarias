@@ -1,92 +1,90 @@
 ---
 import Icon from "../Icon.astro";
 
-// Tarjetas de cristal numeradas: se conservan como en el diseño original (decisión de la propiedad).
-// Los fragmentos que van dentro de un array se resaltan en cursiva y negrita, como antes.
-const puntos = [
-  {
-    n: "01",
-    icon: "chart-line-up",
-    titulo: "Reducción de carga fiscal",
-    partes: [
-      "Optimizamos estructuras legales para ",
-      ["reducir tu carga fiscal"],
-      ", sin cruzar una sola línea roja. Todo auditado.",
-    ],
-    fondo: "bg-white/10 hover:bg-white/20",
-  },
-  {
-    n: "02",
-    icon: "shield-check",
-    titulo: "Planificación fiscal personalizada",
-    partes: [
-      "No usamos plantillas. ",
-      ["Analizamos tu modelo"],
-      " de negocio y diseñamos una ",
-      ["estrategia a medida"],
-      ", maximizando deducciones y bonificaciones según sector y ubicación.",
-    ],
-    fondo: "bg-white/5 hover:bg-white/10",
-  },
-  {
-    n: "03",
-    icon: "lock-key",
-    titulo: "Blindaje ante inspecciones",
-    partes: [
-      ["Nos anticipamos"],
-      " al criterio de Hacienda. Preparamos tu documentación y operativa para que, ante una inspección, tengas ",
-      ["respaldo de informes"],
-      " técnicos, legales y contables de primer nivel.",
-    ],
-    fondo: "bg-white/5 hover:bg-white/10",
-  },
-];
+// Cada texto se parte en fragmentos: los que van en array se resaltan en negrita.
+const principal = {
+  icon: "chart-line-up",
+  titulo: "Reducción de carga fiscal",
+  partes: [
+    "Optimizamos estructuras legales para ",
+    ["reducir tu carga fiscal"],
+    ", sin cruzar una sola línea roja. Todo auditado.",
+  ],
+};
+const planificacion = {
+  icon: "shield-check",
+  titulo: "Planificación fiscal personalizada",
+  partes: [
+    "No usamos plantillas. ",
+    ["Analizamos tu modelo"],
+    " de negocio y diseñamos una ",
+    ["estrategia a medida"],
+    ", maximizando deducciones y bonificaciones según sector y ubicación.",
+  ],
+};
+const blindaje = {
+  icon: "lock-key",
+  titulo: "Blindaje ante inspecciones",
+  partes: [
+    ["Nos anticipamos"],
+    " al criterio de Hacienda. Preparamos tu documentación y operativa para que, ante una inspección, tengas ",
+    ["respaldo de informes"],
+    " técnicos, legales y contables de primer nivel.",
+  ],
+};
 ---
 
 <section
   id="nosotros"
-  class="relative overflow-hidden bg-nova bg-[radial-gradient(60%_50%_at_90%_15%,rgba(143,184,255,0.12),transparent_70%)]"
+  class="relative overflow-hidden bg-nova bg-[radial-gradient(60%_50%_at_90%_10%,rgba(143,184,255,0.12),transparent_70%)]"
 >
-  <div class="mx-auto max-w-7xl px-5 pb-16 pt-16 sm:px-6 lg:px-12 lg:pb-32 lg:pt-32">
-    <div class="flex flex-col gap-10 lg:flex-row lg:gap-24">
-      <div class="w-full lg:sticky lg:top-28 lg:h-fit lg:w-5/12">
-        <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+  <div class="mx-auto max-w-7xl px-5 py-16 sm:px-6 md:py-24 lg:px-12 lg:py-32">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5 lg:sticky lg:top-28 lg:h-fit">
+        <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl">
           Soluciones <span class="text-sky">progresivas</span> para negocios <span class="text-sky">progresivos</span>
         </h2>
-        <p class="mt-6 max-w-md text-base leading-relaxed text-sky-soft/90 sm:text-lg md:mt-8 md:text-xl">
-          Acompañamos a negocios que apuestan por el crecimiento sostenible, la transformación digital y la toma de
-          decisiones con impacto real. Nuestro equipo combina experiencia, análisis y visión de futuro para ayudarte a
-          avanzar con confianza.
+        <p class="mt-6 max-w-md text-base leading-relaxed text-sky-soft/90 sm:text-lg md:mt-8">
+          Acompañamos a negocios que apuestan por el crecimiento sostenible, la transformación digital y las decisiones
+          con impacto real. Experiencia, análisis y visión de futuro para avanzar con confianza.
         </p>
+        <a
+          href="#contacto"
+          class="group mt-8 inline-flex min-h-11 items-center gap-2 font-bold text-white underline decoration-sky/50 underline-offset-[6px] transition-colors hover:text-sky hover:decoration-sky"
+        >
+          Solicitar consulta
+          <Icon name="arrow-right" weight="bold" class="size-5 transition-transform group-hover:translate-x-1" />
+        </a>
       </div>
 
-      <ul class="grid w-full grid-cols-1 gap-4 sm:gap-5 lg:w-7/12">
-        {
-          puntos.map((p) => (
-            <li
-              class:list={[
-                "group rounded-[2rem] border border-white/10 p-6 backdrop-blur-xl transition-colors duration-500 sm:p-8",
-                p.fondo,
-              ]}
-            >
-              <div class="mb-4 flex items-start justify-between">
-                <span class="text-4xl font-black text-sky opacity-50 transition-opacity group-hover:opacity-100 sm:text-5xl">
-                  {p.n}
-                </span>
-                <span class="rounded-lg bg-paper/10 p-2 text-paper">
-                  <Icon name={p.icon} class="size-6" />
-                </span>
-              </div>
-              <h3 class="mb-3 text-xl font-bold text-white sm:text-2xl">{p.titulo}</h3>
-              <p class="leading-relaxed text-sky-soft/90">
-                {p.partes.map((parte) =>
-                  Array.isArray(parte) ? <span class="font-bold italic text-sky">{parte[0]}</span> : parte,
-                )}
-              </p>
-            </li>
-          ))
-        }
-      </ul>
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:col-span-7 lg:grid-cols-1 xl:grid-cols-2">
+        <!-- Pieza principal: la de mayor peso, a ancho completo -->
+        <article class="settle rounded-panel border border-white/10 bg-nova-deep p-6 sm:col-span-2 md:p-10 lg:col-span-1 xl:col-span-2">
+          <Icon name={principal.icon} class="size-12 text-sky md:size-14" />
+          <h3 class="mt-6 text-xl font-black tracking-tight text-white sm:text-2xl md:text-3xl">{principal.titulo}</h3>
+          <p class="mt-3 max-w-xl text-base leading-relaxed text-sky-soft/90 md:text-lg">
+            {principal.partes.map((p) => (Array.isArray(p) ? <b class="font-bold text-white">{p[0]}</b> : p))}
+          </p>
+        </article>
+
+        <!-- Pieza clara: rompe el fondo azul y marca el cambio de tono -->
+        <article style="--i:1" class="settle surface-light rounded-panel bg-paper p-6 text-ink md:p-8">
+          <Icon name={planificacion.icon} class="size-10 text-accent" />
+          <h3 class="mt-5 text-xl font-black tracking-tight md:text-2xl">{planificacion.titulo}</h3>
+          <p class="mt-3 text-base leading-relaxed text-slate-700">
+            {planificacion.partes.map((p) => (Array.isArray(p) ? <b class="font-bold text-ink">{p[0]}</b> : p))}
+          </p>
+        </article>
+
+        <!-- Pieza de contorno: la más ligera -->
+        <article style="--i:2" class="settle rounded-panel border border-white/25 p-6 md:p-8">
+          <Icon name={blindaje.icon} class="size-10 text-sky" />
+          <h3 class="mt-5 text-xl font-black tracking-tight text-white md:text-2xl">{blindaje.titulo}</h3>
+          <p class="mt-3 text-base leading-relaxed text-sky-soft/90">
+            {blindaje.partes.map((p) => (Array.isArray(p) ? <b class="font-bold text-white">{p[0]}</b> : p))}
+          </p>
+        </article>
+      </div>
     </div>
   </div>
 </section>

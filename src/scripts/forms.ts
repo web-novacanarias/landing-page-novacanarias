@@ -92,6 +92,21 @@ export function setupForm(opts: FormOptions) {
   const stamp = form.querySelector<HTMLInputElement>('input[name="ts"]');
   if (stamp) stamp.value = String(Date.now());
 
+  // Mensajes de validación en español y con la acción a seguir (el navegador los pone en su idioma).
+  type Field = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+  const messageFor = (field: Field) => {
+    const v = field.validity;
+    if (v.valueMissing) return field instanceof HTMLInputElement && field.type === "checkbox" ? "Marca esta casilla para continuar." : "Rellena este campo.";
+    if (v.typeMismatch) return field.type === "email" ? "Escribe un email válido, por ejemplo nombre@empresa.com." : "El formato no es válido.";
+    if (v.tooShort) return `Escribe al menos ${field.minLength} caracteres.`;
+    return "";
+  };
+  // form.elements incluye campos asociados con el atributo form= (p. ej. la casilla de la newsletter).
+  for (const el of Array.from(form.elements) as Field[]) {
+    el.addEventListener("invalid", () => el.setCustomValidity?.(messageFor(el)));
+    el.addEventListener("input", () => el.setCustomValidity?.(""));
+  }
+
   const turnstile = setupTurnstile(form);
   const idleText = (buttonLabel ?? button).textContent ?? "";
 

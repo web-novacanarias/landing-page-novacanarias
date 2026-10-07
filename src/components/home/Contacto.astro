@@ -15,7 +15,7 @@ const label = "mb-2 block text-sm font-medium text-sky-soft";
 <section id="contacto" class="bg-nova py-14 md:py-28">
   <div class="mx-auto grid max-w-7xl items-start gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:gap-20">
     <div class="order-2 lg:order-1">
-      <div class="relative aspect-[4/3] overflow-hidden rounded-panel border border-white/10 bg-nova-deep sm:aspect-square">
+      <div class="unveil relative aspect-[4/3] overflow-hidden rounded-panel border border-white/10 bg-nova-deep sm:aspect-square">
         <Image
           src={contacto}
           alt="Persona escribiendo en una libreta junto a un portátil sobre una mesa blanca"
@@ -51,142 +51,143 @@ const label = "mb-2 block text-sm font-medium text-sky-soft";
     </div>
 
     <div class="order-1 lg:order-2">
-      <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
-        ¿Hablamos?<br />
-        <span class="block text-balance text-sky">Tu futuro empieza aquí.</span>
-      </h2>
-      <p class="mt-5 max-w-lg text-lg leading-relaxed text-sky-soft/90">
-        Cuéntanos qué necesitas y te responderemos en horario de atención.
-      </p>
-      <ul class="mt-4 flex flex-wrap gap-x-8 gap-y-0">
-        <li>
-          <a href={SITE.phoneHref} class="flex min-h-11 items-center gap-3 text-lg font-medium text-white transition-colors hover:text-sky">
-            <Icon name="phone" class="size-6 text-sky" />
-            {SITE.phone}
-          </a>
-        </li>
-        <li>
-          <a href={`mailto:${SITE.email}`} class="flex min-h-11 items-center gap-3 text-lg font-medium text-white transition-colors hover:text-sky">
-            <Icon name="envelope-simple" class="size-6 text-sky" />
-            {SITE.email}
-          </a>
-        </li>
-      </ul>
-
-      <form id="contact-form" data-turnstile-sitekey={siteKey} class="mt-9 space-y-5" novalidate>
-        <div>
-          <label for="contact-nombre" class={label}>Nombre</label>
-          <input id="contact-nombre" type="text" name="nombre" autocomplete="name" maxlength="100" required class={input} />
-        </div>
-
-        <div class="grid gap-5 sm:grid-cols-2">
+      <div class="reveal">
+        <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+          ¿Hablamos?<br />
+          <span class="block text-balance text-sky">Tu futuro empieza aquí.</span>
+        </h2>
+        <p class="mt-5 max-w-lg text-lg leading-relaxed text-sky-soft/90">
+          Cuéntanos qué necesitas y te responderemos en horario de atención.
+        </p>
+        <ul class="mt-4 flex flex-wrap gap-x-8 gap-y-0">
+          <li>
+            <a href={SITE.phoneHref} class="flex min-h-11 items-center gap-3 text-lg font-medium text-white transition-colors hover:text-sky">
+              <Icon name="phone" class="size-6 text-sky" />
+              {SITE.phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${SITE.email}`} class="flex min-h-11 items-center gap-3 text-lg font-medium text-white transition-colors hover:text-sky">
+              <Icon name="envelope-simple" class="size-6 text-sky" />
+              {SITE.email}
+            </a>
+          </li>
+        </ul>
+  
+        <form id="contact-form" data-turnstile-sitekey={siteKey} class="reveal mt-9 space-y-5" style="--i:1" novalidate>
           <div>
-            <label for="contact-email" class={label}>Email</label>
-            <input id="contact-email" type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required class={input} />
+            <label for="contact-nombre" class={label}>Nombre</label>
+            <input id="contact-nombre" type="text" name="nombre" autocomplete="name" maxlength="100" required class={input} />
           </div>
+  
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="contact-email" class={label}>Email</label>
+              <input id="contact-email" type="email" name="email" autocomplete="email" inputmode="email" maxlength="254" required class={input} />
+            </div>
+            <div>
+              <label for="contact-telefono" class={label}>Teléfono <span class="font-normal text-sky-soft/70">(opcional)</span></label>
+              <input id="contact-telefono" type="tel" name="telefono" autocomplete="tel" inputmode="tel" maxlength="30" class={input} />
+            </div>
+          </div>
+  
           <div>
-            <label for="contact-telefono" class={label}>Teléfono <span class="font-normal text-sky-soft/70">(opcional)</span></label>
-            <input id="contact-telefono" type="tel" name="telefono" autocomplete="tel" inputmode="tel" maxlength="30" class={input} />
+            <label for="contact-servicio" class={label}>¿Qué necesitas? <span class="font-normal text-sky-soft/70">(opcional)</span></label>
+            <div class="relative">
+              <select
+                id="contact-servicio"
+                name="servicio"
+                class:list={[input, "appearance-none pr-12 [&>option]:bg-white [&>option]:text-ink"]}
+              >
+                <option value="">Selecciona un servicio</option>
+                <option value="fiscal">Fiscalidad</option>
+                <option value="laboral">Laboral</option>
+                <option value="contabilidad">Contabilidad</option>
+                <option value="subvenciones">Subvenciones</option>
+                <option value="sociedades">Constitución de sociedades</option>
+                <option value="otro">Otro</option>
+              </select>
+              <Icon name="caret-right" class="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 rotate-90 text-sky-soft" />
+            </div>
           </div>
-        </div>
-
-        <div>
-          <label for="contact-servicio" class={label}>¿Qué necesitas? <span class="font-normal text-sky-soft/70">(opcional)</span></label>
-          <div class="relative">
-            <select
-              id="contact-servicio"
-              name="servicio"
-              class:list={[input, "appearance-none pr-12 [&>option]:bg-white [&>option]:text-ink"]}
-            >
-              <option value="">Selecciona un servicio</option>
-              <option value="fiscal">Fiscalidad</option>
-              <option value="laboral">Laboral</option>
-              <option value="contabilidad">Contabilidad</option>
-              <option value="subvenciones">Subvenciones</option>
-              <option value="sociedades">Constitución de sociedades</option>
-              <option value="otro">Otro</option>
-            </select>
-            <Icon name="caret-right" class="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 rotate-90 text-sky-soft" />
+  
+          <div>
+            <label for="contact-mensaje" class={label}>Cuéntanos en qué podemos ayudarte</label>
+            <textarea id="contact-mensaje" name="mensaje" rows="5" minlength="10" maxlength="3000" required class={input}></textarea>
           </div>
-        </div>
-
-        <div>
-          <label for="contact-mensaje" class={label}>Cuéntanos en qué podemos ayudarte</label>
-          <textarea id="contact-mensaje" name="mensaje" rows="5" minlength="10" maxlength="3000" required class={input}></textarea>
-        </div>
-
-        <div class="hp" aria-hidden="true">
-          <label>No rellenar este campo <input type="text" name="website_url" tabindex="-1" autocomplete="off" /></label>
-        </div>
-        <input type="hidden" name="ts" value="" />
-        <div data-turnstile-slot class="empty:hidden"></div>
-
-        <label class="flex min-h-11 items-start gap-3 py-1 text-sm leading-snug text-sky-soft">
-          <input type="checkbox" name="privacidad" required class="mt-0.5 size-6 shrink-0 accent-sky" />
-          <span>
-            He leído y acepto la <a href="/legal/privacidad" class="font-bold text-white underline underline-offset-2">política de privacidad</a>.
-          </span>
-        </label>
-
-        <button
-          type="submit"
-          id="contact-btn"
-          class="flex w-full items-center justify-center gap-2 rounded-control bg-white px-8 py-4 text-lg font-bold text-nova shadow-[0_14px_30px_-14px_rgba(0,10,40,0.8)] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          <span id="contact-btn-text">Enviar consulta</span>
-          <Icon name="paper-plane-tilt" weight="bold" class="size-5" />
-        </button>
-
-        <p id="contact-message" role="status" aria-live="polite" hidden></p>
-      </form>
+  
+          <div class="hp" aria-hidden="true">
+            <label>No rellenar este campo <input type="text" name="website_url" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <input type="hidden" name="ts" value="" />
+          <div data-turnstile-slot class="empty:hidden"></div>
+  
+          <label class="flex min-h-11 items-start gap-3 py-1 text-sm leading-snug text-sky-soft">
+            <input type="checkbox" name="privacidad" required class="mt-0.5 size-6 shrink-0 accent-sky" />
+            <span>
+              He leído y acepto la <a href="/legal/privacidad" class="font-bold text-white underline underline-offset-2">política de privacidad</a>.
+            </span>
+          </label>
+  
+          <button
+            type="submit"
+            id="contact-btn"
+            class="flex w-full items-center justify-center gap-2 rounded-control bg-white px-8 py-4 text-lg font-bold text-nova shadow-[0_14px_30px_-14px_rgba(0,10,40,0.8)] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            <span id="contact-btn-text">Enviar consulta</span>
+            <Icon name="paper-plane-tilt" weight="bold" class="size-5" />
+          </button>
+  
+          <p id="contact-message" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
-
-<style>
-  /* Fundido entre las dos fotos: solo se anima si el usuario no pide menos movimiento. */
-  .slide {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: no-preference) {
+  </section>
+  
+  <style>
+    /* Fundido entre las dos fotos: solo se anima si el usuario no pide menos movimiento. */
     .slide {
-      animation: crossfade 14s ease-in-out infinite;
-    }
-  }
-  @keyframes crossfade {
-    0%,
-    40% {
       opacity: 0;
     }
-    50%,
-    90% {
-      opacity: 1;
+    @media (prefers-reduced-motion: no-preference) {
+      .slide {
+        animation: crossfade 14s ease-in-out infinite;
+      }
     }
-    100% {
-      opacity: 0;
+    @keyframes crossfade {
+      0%,
+      40% {
+        opacity: 0;
+      }
+      50%,
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
     }
-  }
-</style>
-
-<script>
-  import { setupForm } from "../../scripts/forms";
-
-  const form = document.getElementById("contact-form") as HTMLFormElement | null;
-  const button = document.getElementById("contact-btn") as HTMLButtonElement | null;
-  const message = document.getElementById("contact-message");
-
-  if (form && button && message) {
-    setupForm({
-      form,
-      endpoint: "/api/contact",
-      button,
-      buttonLabel: document.getElementById("contact-btn-text"),
-      message,
-      busyText: "Enviando...",
-      successText: "Mensaje enviado. Te responderemos pronto.",
-      errorText: "No hemos podido enviar el mensaje. Inténtalo de nuevo más tarde o llámanos.",
-      successClass: "rounded-control bg-emerald-950/60 p-4 text-center font-bold text-emerald-200",
-      errorClass: "rounded-control bg-red-950/60 p-4 text-center font-bold text-red-200",
-    });
-  }
-</script>
+  </style>
+  
+  <script>
+    import { setupForm } from "../../scripts/forms";
+  
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const button = document.getElementById("contact-btn") as HTMLButtonElement | null;
+    const message = document.getElementById("contact-message");
+  
+    if (form && button && message) {
+      setupForm({
+        form,
+        endpoint: "/api/contact",
+        button,
+        buttonLabel: document.getElementById("contact-btn-text"),
+        message,
+        busyText: "Enviando...",
+        successText: "Mensaje enviado. Te responderemos pronto.",
+        errorText: "No hemos podido enviar el mensaje. Inténtalo de nuevo más tarde o llámanos.",
+        successClass: "rounded-control bg-emerald-950/60 p-4 text-center font-bold text-emerald-200",
+        errorClass: "rounded-control bg-red-950/60 p-4 text-center font-bold text-red-200",
+      });
+    }
+  </script>

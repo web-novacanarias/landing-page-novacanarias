@@ -27,7 +27,7 @@
     ],
     "motion": [
       { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Scroll reveal and panel transitions." },
-      { "name": "reveal", "value": "opacity 0 to 1, translateY 16px to 0, 0.8s, 80ms stagger", "purpose": "Stats strip and sector tiles only; disabled under reduced motion." },
+      { "name": "reveal", "value": "opacity 0 to 1, translateY 16px to 0, 0.8s, 80ms stagger", "purpose": "Stats, section headings and the contact column. Sections also have .enter (hero), .draw (services), .settle (Nosotros, Equipo) and .unveil (sector and contact photos); all disabled under reduced motion and visible without JS." },
       { "name": "contact-crossfade", "value": "14s ease-in-out infinite", "purpose": "Two contact photos crossfade." }
     ],
     "breakpoints": [
@@ -99,7 +99,7 @@
     "overview": "A Canarian professional firm that speaks plainly. The page is a navy ground with off-white paper sections interleaved; structure comes from weight contrast (Futura 900 headlines against 400 body) and hairline-ruled lists rather than grids of cards. Photography is real (desk, offices, sector scenes), never illustration. One blue accent does all the emphasis, in two tones matched to the ground it sits on.",
     "keyCharacteristics": [
       "Navy ground (#00236a) with a deeper band (#001a4d) and paper (#f7f6f6) sections.",
-      "Hairline-ruled lists (services, principles, audience) in place of card grids.",
+      "Hairline-ruled lists (services, audience) in place of card grids; Nosotros is an asymmetric trio of three different surfaces.",
       "Weight contrast in one family: 900 headlines, 400 body, 700 for links and buttons.",
       "Real photography in 24px-radius panels; Phosphor icons only.",
       "Flat surfaces; depth from tonal bands and a few soft shadows on floating or lifted items."
@@ -117,7 +117,7 @@
       "Do build lists as hairline-ruled rows, with 900 titles over 400 body.",
       "Do use real photographs in 24px panels with descriptive Spanish alt text.",
       "Do import icons through Icon.astro (Phosphor, regular, bold only for arrows and actions) and register new glyphs in its glob list.",
-      "Do put the reveal class only on the stats strip and sector tiles, and respect reduced motion."
+      "Do give each section its own entrance from the motion classes, add no new loops, and keep content visible without JS or under reduced motion."
     ],
     "donts": [
       "Don't use a second typeface or a weight outside 400/500/700/900.",

@@ -131,6 +131,108 @@
   }
 }
 
+/*
+ * Entradas de seccion. Cada una tiene su propio lenguaje para que no se lean como la misma animacion:
+ *   .enter / .enter-clip / .enter-zoom  Portada: al cargar, solo con transform (no retrasa el LCP).
+ *   .draw                               Servicios: la linea de cada fila se dibuja y luego aparece el contenido.
+ *   .settle                             Nosotros y Equipo: las piezas se asientan en orden (sube y se agranda un poco).
+ *   .unveil                             Sectores y Contacto: la foto se destapa desde abajo mientras la imagen se asienta.
+ * Visibles por defecto: .draw y .settle solo se ocultan con JS (html.js) y sin 'reducir movimiento'.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes enter-rise {
+    from { transform: translateY(20px); }
+    to { transform: none; }
+  }
+  @keyframes enter-clip {
+    from { clip-path: inset(10% 10% 10% 10% round 1.5rem); }
+    to { clip-path: inset(0 round 1.5rem); }
+  }
+  @keyframes enter-zoom {
+    from { transform: scale(1.08); }
+    to { transform: none; }
+  }
+  .enter {
+    animation: enter-rise 0.9s var(--ease-out-expo) both;
+    animation-delay: calc(var(--i, 0) * 100ms);
+  }
+  .enter-clip {
+    animation: enter-clip 1.1s var(--ease-out-expo) both;
+    animation-delay: 150ms;
+  }
+  .enter-zoom {
+    animation: enter-zoom 1.4s var(--ease-out-expo) both;
+    animation-delay: 150ms;
+  }
+
+  html.js .draw {
+    position: relative;
+    border-bottom-color: transparent;
+  }
+  html.js .draw::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    background: var(--rule, rgb(255 255 255 / 0.15));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.1s var(--ease-out-expo);
+  }
+  html.js .draw > * {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.8s var(--ease-out-expo),
+      transform 0.8s var(--ease-out-expo);
+  }
+  html.js .draw > :nth-child(1) { transition-delay: 0.25s; }
+  html.js .draw > :nth-child(2) { transition-delay: 0.35s; }
+  html.js .draw > :nth-child(3) { transition-delay: 0.45s; }
+  html.js .draw.is-visible::after { transform: scaleX(1); }
+  html.js .draw.is-visible > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  html.js .settle {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    transition:
+      opacity 0.9s var(--ease-out-expo),
+      transform 1s var(--ease-out-expo);
+    transition-delay: calc(var(--i, 0) * 140ms);
+  }
+  html.js .settle.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* .unveil: solo con JS y sin 'reducir movimiento'; sin eso, la foto se ve completa desde el principio. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .unveil {
+    clip-path: inset(18% 0 0 0 round 1.5rem);
+    opacity: 0;
+    transition:
+      clip-path 1.2s var(--ease-out-expo),
+      opacity 0.6s var(--ease-out-expo);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  html.js .unveil img {
+    transform: scale(1.12);
+    transition: transform 1.6s var(--ease-out-expo);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  html.js .unveil.is-visible {
+    clip-path: inset(0 round 1.5rem);
+    opacity: 1;
+  }
+  html.js .unveil.is-visible img {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -24,13 +24,13 @@ const sectores = [
 
 <section id="sectores" class="surface-light bg-paper py-16 md:py-28">
   <div class="mx-auto max-w-7xl px-6">
-    <h2 class="text-3xl font-black leading-[1.08] tracking-tight text-ink sm:text-4xl md:text-5xl">Sectores especializados</h2>
+    <h2 class="reveal text-3xl font-black leading-[1.08] tracking-tight text-ink sm:text-4xl md:text-5xl">Sectores especializados</h2>
 
     <ul class="mt-8 grid auto-rows-[10.5rem] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:gap-4 md:mt-16 lg:grid-cols-4">
       {
         sectores.map((s, i) => (
           <li
-            class:list={["reveal relative overflow-hidden rounded-panel", s.span]}
+            class:list={["unveil relative overflow-hidden rounded-panel", s.span]}
             style={`--i:${i % 4}`}
           >
             <Image

@@ -1,72 +1,37 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Legal from "../../layouts/Legal.astro";
 ---
 
-<Layout title="Política de Privacidad - Nova Consulting">
-  <main class="bg-[#F7F6F6] pt-32 pb-20 min-h-screen">
-    <div class="max-w-4xl mx-auto px-6">
-      
-      <a href="/" class="inline-flex items-center gap-2 mb-10 text-sm font-semibold text-blue-700 hover:text-[#00236a] transition-colors group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Volver al Inicio
-      </a>
+<Legal
+  title="Política de privacidad | Canarias Nova Consulting"
+  description="Cómo trata Canarias Nova Consulting tus datos personales: responsable, finalidades, legitimación y derechos."
+  heading="Política de privacidad"
+  current="privacidad"
+>
+  <p>En Nova Consulting Canarias nos tomamos muy en serio la privacidad de tus datos.</p>
 
-      <div class="bg-white p-10 md:p-14 rounded-3xl shadow-[0_15px_30px_-5px_rgba(0,35,106,0.05)] border border-white/50">
-        
-        <h1 class="text-4xl md:text-5xl font-black mb-10 text-[#00236a] tracking-tighter leading-none">
-          Política de Privacidad
-        </h1>
-        
-        <div class="space-y-10 text-slate-700 leading-relaxed text-base md:text-lg font-medium">
-          
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              1. Responsable del Tratamiento
-            </h2>
-            <p class="mb-4 text-slate-600/80">
-              En Nova Consulting Canarias nos tomamos muy en serio la privacidad de tus datos.
-            </p>
-            <ul class="list-none space-y-3 pl-2 border-l-4 border-blue-200">
-              <li><strong>Entidad Responsable:</strong> Canarias Nova Consulting, S.L.</li>
-              <li><strong>CIF:</strong> B70632781</li>
-              <li><strong>Dirección:</strong> Camino San Bartolomé de Geneto, 190 (12), 38296 San Cristóbal de La Laguna, Santa Cruz de Tenerife</li>
-              <li><strong>Delegado de Protección de Datos (DPD):</strong> <a href="mailto:info@canariasnova.com" class="text-blue-600 font-bold hover:underline">info@canariasnova.com</a></li>
-            </ul>
-          </section>
+  <h2>1. Responsable del tratamiento</h2>
+  <dl>
+    <div><dt>Entidad responsable</dt><dd>Canarias Nova Consulting, S.L.</dd></div>
+    <div><dt>CIF</dt><dd>B70632781</dd></div>
+    <div><dt>Dirección</dt><dd>Camino San Bartolomé de Geneto, 190 (12), 38296 San Cristóbal de La Laguna, Santa Cruz de Tenerife</dd></div>
+    <div><dt>Delegado de protección de datos (DPD)</dt><dd><a href="mailto:info@canariasnova.com">info@canariasnova.com</a></dd></div>
+  </dl>
 
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              2. Finalidad del Tratamiento de Datos
-            </h2>
-            <p class="mb-4">Tratamos la información que nos facilitas con las siguientes finalidades:</p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li><strong>Suscripción a la Newsletter:</strong> Envío de información exclusiva sobre actualidad fiscal, contable y laboral en Canarias.</li>
-              <li><strong>Atención de Consultas:</strong> Gestión y respuesta a los mensajes enviados a través de nuestros formularios de contacto o email.</li>
-            </ul>
-          </section>
+  <h2>2. Finalidad del tratamiento de datos</h2>
+  <p>Tratamos la información que nos facilitas con las siguientes finalidades:</p>
+  <ul>
+    <li><strong>Suscripción a la newsletter:</strong> envío de información exclusiva sobre actualidad fiscal, contable y laboral en Canarias.</li>
+    <li><strong>Atención de consultas:</strong> gestión y respuesta a los mensajes enviados a través de nuestros formularios de contacto o email.</li>
+  </ul>
 
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              3. Legitimación del Tratamiento
-            </h2>
-            <p>
-              La base legal para el tratamiento de tus datos personales es el <strong>consentimiento expreso e inequívoco</strong> que nos otorgas al suscribirte voluntariamente a nuestra newsletter o al enviarnos una consulta. No tratamos datos sin tu autorización previa.
-            </p>
-          </section>
+  <h2>3. Legitimación del tratamiento</h2>
+  <p>
+    La base legal para el tratamiento de tus datos personales es el <strong>consentimiento expreso e inequívoco</strong> que nos otorgas al suscribirte voluntariamente a nuestra newsletter o al enviarnos una consulta. No tratamos datos sin tu autorización previa.
+  </p>
 
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              4. Tus Derechos
-            </h2>
-            <p>
-              Tienes derecho a acceder, rectificar y suprimir tus datos, así como a limitar su tratamiento o portarlos escribiéndonos a <a href="mailto:info@canariasnova.com" class="text-blue-600 font-bold hover:underline">info@canariasnova.com</a>. Te responderemos a la mayor brevedad posible.
-            </p>
-          </section>
-
-        </div>
-      </div>
-    </div>
-  </main>
-</Layout>
+  <h2>4. Tus derechos</h2>
+  <p>
+    Tienes derecho a acceder, rectificar y suprimir tus datos, así como a limitar su tratamiento o portarlos escribiéndonos a <a href="mailto:info@canariasnova.com">info@canariasnova.com</a>. Te responderemos a la mayor brevedad posible.
+  </p>
+</Legal>

@@ -17,7 +17,7 @@ import { servicios } from "../../data/servicios";
     <div class="mt-10 border-t border-ink/15 md:mt-20">
       {
         servicios.map((s) => (
-          <article class="grid gap-6 border-b border-ink/15 py-9 md:py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-20 lg:gap-y-4">
+          <article style="--rule: rgb(10 26 63 / 0.15)" class="draw grid gap-6 border-b border-ink/15 py-9 md:py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-20 lg:gap-y-4">
             <div class="lg:col-start-1 lg:row-start-1">
               <Icon name={s.icon} class="size-10 text-accent md:size-11" />
               <h3 class="mt-4 text-3xl font-black tracking-tight text-ink md:mt-5 md:text-4xl">{s.nombre}</h3>

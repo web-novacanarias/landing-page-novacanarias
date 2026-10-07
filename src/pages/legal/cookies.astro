@@ -1,60 +1,43 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Legal from "../../layouts/Legal.astro";
 ---
 
-<Layout title="Política de Cookies - Nova Consulting">
-  <main class="bg-[#F7F6F6] pt-32 pb-20 min-h-screen">
-    <div class="max-w-4xl mx-auto px-6">
-      
-      <a href="/" class="inline-flex items-center gap-2 mb-10 text-sm font-semibold text-blue-700 hover:text-[#00236a] transition-colors group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Volver al Inicio
-      </a>
+<Legal
+  title="Política de cookies | Canarias Nova Consulting"
+  description="Qué cookies y almacenamiento local usa la web de Canarias Nova Consulting, para qué sirven y cómo gestionarlos."
+  heading="Política de cookies"
+  current="cookies"
+>
+  <p>
+    Esta web usa pocas cookies y ninguna de publicidad. A continuación explicamos qué se guarda en tu navegador, quién lo hace y para qué.
+  </p>
 
-      <div class="bg-white p-10 md:p-14 rounded-3xl shadow-[0_15px_30px_-5px_rgba(0,35,106,0.05)] border border-white/50">
-        
-        <h1 class="text-4xl md:text-5xl font-black mb-10 text-[#00236a] tracking-tighter leading-none">
-          Política de Cookies
-        </h1>
-        
-        <div class="space-y-10 text-slate-700 leading-relaxed text-base md:text-lg font-medium">
-          
-          <p class="text-slate-600/80">
-            En esta web utilizamos cookies para mejorar tu experiencia de navegación.
-          </p>
+  <h2>¿Qué son las cookies?</h2>
+  <p>
+    Las cookies son pequeños archivos de texto que los sitios web almacenan en tu navegador para recordar información sobre tu visita, preferencias o para garantizar el funcionamiento seguro de la web.
+  </p>
 
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              ¿Qué son las cookies?
-            </h2>
-            <p>
-              Las cookies son pequeños archivos de texto que los sitios web almacenan en tu navegador para recordar información sobre tu visita, preferencias o para garantizar el funcionamiento seguro de la web.
-            </p>
-          </section>
+  <h2>Qué usamos en Nova Consulting</h2>
+  <ul>
+    <li>
+      <strong>Técnicas y de almacenamiento local (propias):</strong> recuerdan que has aceptado este aviso de cookies y que has cerrado el aviso de la campaña de la Renta. En el cuestionario de la Renta, además, se guarda un borrador en tu navegador para que no pierdas lo ya rellenado. Son necesarias para el funcionamiento básico y no se envían a ningún tercero.
+    </li>
+    <li>
+      <strong>Seguridad de los formularios (Cloudflare Turnstile):</strong> los formularios de contacto y newsletter pueden usar la verificación antirrobots de Cloudflare, Inc., que se carga solo cuando interactúas con un formulario y que puede guardar información técnica en tu navegador con fines de seguridad.
+    </li>
+    <li>
+      <strong>Mapa de Google Maps (terceros):</strong> el mapa del pie de página lo ofrece Google LLC y se carga cuando llegas al final de la página. Google puede instalar sus propias cookies al mostrarlo. Puedes consultar cómo las trata en su <a href="https://policies.google.com/technologies/cookies?hl=es" rel="noopener" target="_blank">política de cookies</a>.
+    </li>
+  </ul>
+  <p>No usamos cookies de publicidad ni de analítica.</p>
 
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              Cookies Utilizadas en Nova Consulting
-            </h2>
-            <ul class="list-none space-y-3 pl-2 border-l-4 border-blue-200">
-              <li><strong>Cookies Técnicas:</strong> Son necesarias para el funcionamiento básico de la web, como la gestión de sesiones o la seguridad. Sin ellas, la web no funcionaría correctamente.</li>
-              <li><strong>Cookies de Maps:</strong> Te permiten visualizar correctamente el mapa embebido de nuestra ubicación.</li>
-            </ul>
-          </section>
+  <h2>Cómo gestionar las cookies</h2>
+  <p>
+    Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones de tu navegador. Si bloqueas todas las cookies, es posible que algunas secciones de la web no funcionen. Si borras los datos del sitio, volverás a ver el aviso de cookies.
+  </p>
 
-          <section>
-            <h2 class="text-xl font-bold mb-4 text-[#00236a] tracking-tight border-b border-blue-100 pb-3">
-              Cómo Gestionar las Cookies
-            </h2>
-            <p class="mb-4">
-              Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones de tu navegador. Si bloqueas todas las cookies, es posible que algunas secciones de la web no funcionen.
-            </p>
-          </section>
-
-        </div>
-      </div>
-    </div>
-  </main>
-</Layout>
+  <h2>Más información</h2>
+  <p>
+    Para saber cómo tratamos los datos personales que nos envías en los formularios, consulta la <a href="/legal/privacidad">política de privacidad</a>.
+  </p>
+</Legal>
